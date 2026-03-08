@@ -2,7 +2,7 @@
 body{
   font-family:'Poppins',sans-serif;
   margin:0;
-  background:#0f0f1a;
+  background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
   color:white;
   scroll-behavior:smooth;
   user-select:none;
@@ -17,8 +17,8 @@ body{
   position:fixed;
   width:100%;
   z-index:100;
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(10px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
 }
 .nav-links{
   display:flex;
@@ -27,9 +27,14 @@ body{
 .nav-links a{
   color:#ff7ac8;
   text-decoration:none;
+  padding:8px 12px;
+  border-radius:8px;
   transition:0.3s;
 }
-.nav-links a:hover{color:white;}
+.nav-links a:hover{
+  background: #ff7ac8;
+  color: #0f0f1a;
+}
 
 /* Hamburger menu */
 .hamburger{
@@ -81,14 +86,24 @@ body{
 .accordion-content{ display:none; padding:10px 20px; background:#222233; border-radius:10px; margin-bottom:10px; text-align:left; }
 
 /* FOOTER */
-footer{ padding:30px; background:#1a1a2e; text-align:center; }
+footer{
+  padding:30px;
+  text-align:center;
+  background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
+  color:#0f0f1a;
+  font-weight:bold;
+  font-size:16px;
+  letter-spacing:1px;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+}
 
 /* ANIMATIONS */
 @keyframes slideUp{ from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);} }
 
 /* RESPONSIVE */
 @media (max-width:768px){
-  .nav-links{ display:none; flex-direction:column; background:rgba(0,0,0,0.9); position:absolute; top:70px; right:5%; padding:20px; border-radius:10px; }
+  .nav-links{ display:none; flex-direction:column; background: rgba(0,0,0,0.9); position:absolute; top:70px; right:5%; padding:20px; border-radius:10px; }
   .nav-links.show{ display:flex; }
   .hamburger{ display:flex; }
   .hero-text{ font-size:35px; }
