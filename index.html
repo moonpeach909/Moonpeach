@@ -15,6 +15,7 @@ body{
   user-select:none;
   overflow-x:hidden;
 }
+h2{text-align:center;margin:40px 0 20px 0;}
 
 /* ===== NAVBAR ===== */
 .navbar{
@@ -40,8 +41,8 @@ body{
   transition:0.3s;
 }
 .nav-links a:hover{
-  background: #ff7ac8;
-  color: #0f0f1a;
+  background:#ff7ac8;
+  color:#0f0f1a;
 }
 .hamburger{
   display:none;
@@ -117,11 +118,13 @@ body{
 
 /* ===== COMMISSIONS ===== */
 .prices{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; opacity:0; transform:translateY(30px); transition:1s; }
-.card{ background:#1a1a2e; padding:20px; border-radius:15px; transition:0.3s; }
+.card{ background:#1a1a2e; padding:20px; border-radius:15px; transition:0.3s; text-align:center;}
 .card:hover{ transform:translateY(-10px); box-shadow:0 0 20px #ff7ac8; }
-.payment{ margin-top:20px; font-size:16px; color:#ffb6c1; }
+.payment{ margin-top:20px; font-size:16px; color:#ffb6c1; text-align:center; }
 
-/* ===== ACCORDION ===== */
+/* ===== POLICIES ===== */
+.policy-section{ margin:20px 5%; opacity:0; transform:translateY(30px); transition:1s;}
+.policy-section h3{margin-bottom:10px; color:#ff7ac8;}
 .accordion-btn{ width:100%; text-align:left; padding:15px; background:#1a1a2e; border:none; color:#ff7ac8; cursor:pointer; margin-bottom:5px; border-radius:10px; }
 .accordion-content{ display:none; padding:10px 20px; background:#222233; border-radius:10px; margin-bottom:10px; text-align:left; }
 
@@ -158,7 +161,7 @@ footer{
   .nav-links.show{ display:flex; }
   .hamburger{ display:flex; }
   .hero-text{ font-size:35px; }
-  .prices, .tab-content, .contact-form, .socials{ transform:translateY(0);}
+  .prices, .tab-content, .contact-form, .socials, .policy-section{ transform:translateY(0);}
 }
 
 /* ===== ANIMATIONS ===== */
@@ -219,21 +222,22 @@ footer{
 <section id="commissions">
 <h2>Commissions</h2>
 <div class="prices fade-in">
-<div class="card"><h3>1 Character</h3><p>Base Color: $20</p><p>Full Shading/Comic: $35</p><p>Timeline: 2–4 weeks</p></div>
-<div class="card"><h3>2 Characters</h3><p>Base Color: $35</p><p>Full Shading/Comic: $60</p><p>Timeline: 3–5 weeks</p></div>
+<div class="card"><h3>PFP</h3><p>$50–$80</p></div>
+<div class="card"><h3>Half Body</h3><p>$100–$120</p></div>
+<div class="card"><h3>Full Body</h3><p>$130–$150</p></div>
 </div>
 <div class="payment fade-in">
 <h3>Payment Methods</h3>
-<p>PayPal, Apple Pay, Cash App, Venmo, Crypto (BTC/ETH)</p>
+<p>PayPal, Apple Pay, Cash App, Venmo, BTC <span style="font-size:18px;">💰</span></p>
+<p><em>Prices depend on work details & are negotiable</em></p>
 </div>
 </section>
 
 <!-- POLICIES -->
 <section id="policies">
-<h2>Policies / What I Do / What I Don’t Do</h2>
-<div class="accordion fade-in">
-<button class="accordion-btn">What I Do</button>
-<div class="accordion-content">
+<h2>Policies</h2>
+<div class="policy-section fade-in">
+<h3>What I Do</h3>
 <ul>
 <li>Draw characters, fantasy art, comics</li>
 <li>Full shading / base color options</li>
@@ -241,14 +245,13 @@ footer{
 <li>Custom style requests</li>
 </ul>
 </div>
-<button class="accordion-btn">What I Don’t Do</button>
-<div class="accordion-content">
+<div class="policy-section fade-in">
+<h3>What I Don’t Do</h3>
 <ul>
 <li>No illegal/offensive content</li>
 <li>No free commercial work without discussion</li>
 <li>No refund after sketch approval</li>
 </ul>
-</div>
 </div>
 </section>
 
@@ -305,15 +308,7 @@ tabBtns.forEach(btn => {
   });
 });
 
-// Accordion
-const accBtns = document.querySelectorAll('.accordion-btn');
-accBtns.forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    btn.classList.toggle('active');
-    const content = btn.nextElementSibling;
-    content.style.display = content.style.display==='block'?'none':'block';
-  });
-});
+// Accordion for policies not needed since separate sections
 
 // Typing Hero
 const heroText = "Moon Peach";
@@ -359,6 +354,5 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.3});
 faders.forEach(fader=>observer.observe(fader));
 </script>
-
 </body>
 </html>
