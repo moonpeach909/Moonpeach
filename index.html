@@ -10,10 +10,10 @@
 
 <style>
 
-/* ===== GENERAL ===== */
+/* GENERAL */
 
 body{
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 margin:0;
 background:linear-gradient(135deg,#0f0f1a,#1a1a2e);
 color:white;
@@ -23,7 +23,7 @@ user-select:none;
 }
 
 section{
-padding:70px 5%;
+padding:70px 6%;
 }
 
 h2{
@@ -31,15 +31,17 @@ text-align:center;
 margin-bottom:30px;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 
 .navbar{
 display:flex;
 justify-content:flex-end;
 align-items:center;
-padding:20px 5%;
+padding:20px 6%;
 position:fixed;
+top:0;
 width:100%;
+box-sizing:border-box;
 z-index:1000;
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
@@ -55,7 +57,7 @@ color:#ff7ac8;
 text-decoration:none;
 padding:8px 12px;
 border-radius:8px;
-transition:0.3s;
+transition:.3s;
 }
 
 .nav-links a:hover{
@@ -63,7 +65,7 @@ background:#ff7ac8;
 color:#0f0f1a;
 }
 
-/* ===== HAMBURGER ===== */
+/* HAMBURGER */
 
 .hamburger{
 display:none;
@@ -79,7 +81,7 @@ margin:4px 0;
 border-radius:2px;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 
 .hero{
 height:100vh;
@@ -118,7 +120,7 @@ color:white;
 box-shadow:0 0 15px #ff7ac8;
 }
 
-/* ===== ABOUT ===== */
+/* ABOUT */
 
 .about{
 max-width:800px;
@@ -127,7 +129,7 @@ text-align:center;
 line-height:1.7;
 }
 
-/* ===== PORTFOLIO ===== */
+/* PORTFOLIO */
 
 .tabs{
 display:flex;
@@ -161,7 +163,7 @@ gap:20px;
 width:100%;
 border-radius:12px;
 cursor:pointer;
-transition:0.4s;
+transition:.4s;
 }
 
 .gallery img:hover{
@@ -169,7 +171,7 @@ transform:scale(1.05);
 box-shadow:0 0 15px #ff7ac8;
 }
 
-/* ===== NSFW BLUR ===== */
+/* NSFW BLUR */
 
 .nsfw img{
 filter:blur(20px);
@@ -179,7 +181,7 @@ filter:blur(20px);
 filter:none;
 }
 
-/* ===== COMMISSIONS ===== */
+/* COMMISSIONS */
 
 .prices{
 display:flex;
@@ -193,8 +195,8 @@ background:#1a1a2e;
 padding:25px;
 border-radius:15px;
 text-align:center;
-width:200px;
-transition:0.3s;
+width:220px;
+transition:.3s;
 }
 
 .card:hover{
@@ -209,22 +211,27 @@ margin:10px 0;
 font-weight:600;
 }
 
-/* ===== RULES ===== */
+/* PAYMENT */
 
-.rules{
+.payment-methods{
+text-align:center;
+margin-top:40px;
+}
+
+.payments{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
-gap:40px;
+flex-wrap:wrap;
+gap:20px;
+margin-top:10px;
 }
 
-.rules ul{
-background:#1a1a2e;
-padding:20px;
-border-radius:15px;
+.payments span{
+color:#ff7ac8;
+font-weight:500;
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 
 .contact-form{
 max-width:500px;
@@ -250,21 +257,13 @@ background:#ff7ac8;
 cursor:pointer;
 }
 
-/* ===== SOCIALS ===== */
-
-.socials{
-display:flex;
-justify-content:center;
-gap:25px;
+.contact-info{
+text-align:center;
 margin-top:20px;
-}
-
-.socials a{
 color:#ff7ac8;
-text-decoration:none;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 
 footer{
 padding:30px;
@@ -277,7 +276,7 @@ border-top-left-radius:15px;
 border-top-right-radius:15px;
 }
 
-/* ===== LIGHTBOX ===== */
+/* LIGHTBOX */
 
 #lightbox{
 display:none;
@@ -298,9 +297,9 @@ max-height:90%;
 border-radius:15px;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
 .nav-links{
 display:none;
@@ -311,6 +310,7 @@ right:5%;
 background:#1a1a2e;
 padding:20px;
 border-radius:10px;
+width:200px;
 }
 
 .nav-links.show{
@@ -321,12 +321,12 @@ display:flex;
 display:flex;
 }
 
-.hero h1{
-font-size:32px;
-}
-
 .gallery{
 grid-template-columns:1fr 1fr;
+}
+
+.hero h1{
+font-size:32px;
 }
 
 }
@@ -345,8 +345,6 @@ z-index:-1;
 
 <canvas id="particles"></canvas>
 
-<!-- NAVBAR -->
-
 <header class="navbar">
 
 <div class="hamburger" id="hamburger">
@@ -360,14 +358,11 @@ z-index:-1;
 <a href="#about">About</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#commissions">Commissions</a>
-<a href="#rules">Do & Don't</a>
 <a href="#tos">TOS</a>
 <a href="#contact">Contact</a>
 </nav>
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -381,8 +376,6 @@ z-index:-1;
 
 </section>
 
-<!-- ABOUT -->
-
 <section id="about">
 
 <h2>About Me</h2>
@@ -395,14 +388,12 @@ character illustrations, fantasy artwork and expressive designs.
 </p>
 
 <p>
-I love working on custom characters and bringing creative ideas to life.
+I love bringing creative ideas and original characters to life through my artwork.
 </p>
 
 </div>
 
 </section>
-
-<!-- PORTFOLIO -->
 
 <section id="portfolio">
 
@@ -410,44 +401,28 @@ I love working on custom characters and bringing creative ideas to life.
 
 <div class="tabs">
 
-<button class="tab-btn active" data-tab="pfp">PFP</button>
-<button class="tab-btn" data-tab="half">Half Body</button>
-<button class="tab-btn" data-tab="full">Full Body</button>
+<button class="tab-btn active" data-tab="sfw">SFW</button>
 <button class="tab-btn" data-tab="nsfw">NSFW</button>
 
 </div>
 
-<div class="gallery tab pfp">
+<div class="gallery tab sfw">
 
 <img src="1.png">
 <img src="2.png">
-
-</div>
-
-<div class="gallery tab half" style="display:none">
-
 <img src="3.png">
-<img src="4.png">
-
-</div>
-
-<div class="gallery tab full" style="display:none">
-
-<img src="5.png">
-<img src="6.png">
 
 </div>
 
 <div class="gallery tab nsfw nsfw" style="display:none">
 
-<img src="7.png">
-<img src="8.png">
+<img src="4.png">
+<img src="5.png">
+<img src="6.png">
 
 </div>
 
 </section>
-
-<!-- COMMISSIONS -->
 
 <section id="commissions">
 
@@ -458,53 +433,37 @@ I love working on custom characters and bringing creative ideas to life.
 <div class="card">
 <h3>PFP / Icon</h3>
 <p class="price">$50 – $80</p>
-<p>Perfect for profile pictures</p>
 </div>
 
 <div class="card">
 <h3>Half Body</h3>
 <p class="price">$100 – $120</p>
-<p>Character from waist up</p>
 </div>
 
 <div class="card">
 <h3>Full Body</h3>
 <p class="price">$130 – $150</p>
-<p>Full character illustration</p>
+</div>
+
+</div>
+
+<div class="payment-methods">
+
+<h3>Payment Methods</h3>
+
+<div class="payments">
+
+<span>💳 PayPal</span>
+<span>📄 PayPal Invoice</span>
+<span>💵 CashApp</span>
+<span>💳 Venmo</span>
+<span>🍎 Apple Pay</span>
+
 </div>
 
 </div>
 
 </section>
-
-<!-- RULES -->
-
-<section id="rules">
-
-<h2>Do & Don't</h2>
-
-<div class="rules">
-
-<ul>
-<h3>✔ I Draw</h3>
-<li>OC Characters</li>
-<li>Fanart</li>
-<li>Couple Art</li>
-<li>Fantasy Characters</li>
-</ul>
-
-<ul>
-<h3>❌ I Don't Draw</h3>
-<li>Heavy Mecha</li>
-<li>Extreme Gore</li>
-<li>Illegal Content</li>
-</ul>
-
-</div>
-
-</section>
-
-<!-- TOS -->
 
 <section id="tos">
 
@@ -513,39 +472,46 @@ I love working on custom characters and bringing creative ideas to life.
 <div class="about">
 
 <ul>
-<li>Payment upfront.</li>
-<li>No refund after sketch approval.</li>
-<li>Personal use only unless discussed.</li>
-<li>Artist may display artwork in portfolio.</li>
+
+<li>Payment must be sent before starting the commission.</li>
+
+<li>I will send a sketch for approval before finishing the artwork.</li>
+
+<li>No refunds after sketch approval.</li>
+
+<li>Major revisions may require extra payment.</li>
+
+<li>Artwork is for personal use unless commercial rights are discussed.</li>
+
+<li>I may display the artwork in my portfolio or social media.</li>
+
 </ul>
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact">
 
 <h2>Contact</h2>
 
-<form class="contact-form">
+<form class="contact-form" action="mailto:moonpeach909@gmail.com" method="post" enctype="text/plain">
 
-<input placeholder="Your Name">
+<input name="name" placeholder="Your Name" required>
 
-<input placeholder="Email">
+<input name="email" placeholder="Your Email" required>
 
-<textarea placeholder="Commission details"></textarea>
+<textarea name="message" placeholder="Commission details" required></textarea>
 
-<button>Send</button>
+<button type="submit">Send Message</button>
 
 </form>
 
-<div class="socials">
+<div class="contact-info">
 
-<a href="#">Discord</a>
-<a href="#">Twitter</a>
-<a href="#">Instagram</a>
+<p>Email: moonpeach909@gmail.com</p>
+<p>Discord: moonpeach909</p>
+<p>Instagram: @moonpeach909</p>
 
 </div>
 
@@ -563,7 +529,7 @@ I love working on custom characters and bringing creative ideas to life.
 
 <script>
 
-/* RIGHT CLICK PROTECTION */
+/* PROTECTION */
 
 document.addEventListener("contextmenu",e=>e.preventDefault());
 
