@@ -1,341 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Moon Peach | Artist</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Moon Peach Art</title>
 
 <style>
 
-/* GENERAL */
-
 body{
-font-family:Poppins,sans-serif;
 margin:0;
-background:linear-gradient(135deg,#0f0f1a,#1a1a2e);
+font-family:Arial;
+background:#0f0f1a;
 color:white;
-scroll-behavior:smooth;
-overflow-x:hidden;
-user-select:none;
-}
-
-section{
-padding:70px 6%;
-}
-
-h2{
 text-align:center;
-margin-bottom:30px;
 }
 
 /* NAVBAR */
 
 .navbar{
-display:flex;
-justify-content:flex-end;
-align-items:center;
-padding:20px 6%;
 position:fixed;
 top:0;
 width:100%;
-box-sizing:border-box;
+height:60px;
+background:#141428;
 z-index:1000;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
 }
-
-.nav-links{
-display:flex;
-gap:20px;
-}
-
-.nav-links a{
-color:#ff7ac8;
-text-decoration:none;
-padding:8px 12px;
-border-radius:8px;
-transition:.3s;
-}
-
-.nav-links a:hover{
-background:#ff7ac8;
-color:#0f0f1a;
-}
-
-/* HAMBURGER */
 
 .hamburger{
-display:none;
-flex-direction:column;
+position:absolute;
+right:20px;
+top:18px;
+font-size:26px;
 cursor:pointer;
 }
 
-.hamburger span{
-height:3px;
-width:25px;
-background:#ff7ac8;
-margin:4px 0;
-border-radius:2px;
+/* MENU */
+
+.menu{
+display:none;
+flex-direction:column;
+background:#141428;
+position:absolute;
+top:60px;
+right:0;
+width:200px;
+}
+
+.menu a{
+padding:15px;
+text-decoration:none;
+color:white;
+border-bottom:1px solid #222;
+}
+
+.menu a:hover{
+background:#222;
 }
 
 /* HERO */
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding-top:80px;
+padding-top:120px;
+padding-bottom:80px;
 }
 
 .avatar{
-width:150px;
+width:140px;
 border-radius:50%;
+box-shadow:0 0 20px #ff7ac8;
 animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
-
-.hero h1{
-font-size:45px;
-margin:15px 0;
-}
-
-.btn{
-margin-top:20px;
-padding:12px 25px;
-background:#ff7ac8;
-border-radius:30px;
-text-decoration:none;
-color:white;
-box-shadow:0 0 15px #ff7ac8;
-}
-
-/* ABOUT */
-
-.about{
-max-width:800px;
-margin:auto;
-text-align:center;
-line-height:1.7;
+0%{transform:translateY(0px);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0px);}
 }
 
 /* PORTFOLIO */
 
-.tabs{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-
-.tab-btn{
-padding:10px 20px;
-border:none;
-background:#1a1a2e;
-color:#ff7ac8;
-border-radius:20px;
-cursor:pointer;
-}
-
-.tab-btn.active{
-background:#ff7ac8;
-color:#0f0f1a;
+section{
+padding:60px 20px;
 }
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
+margin-top:30px;
+}
+
+.art{
+position:relative;
 }
 
 .gallery img{
 width:100%;
 border-radius:12px;
-cursor:pointer;
 transition:.4s;
 }
 
 .gallery img:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #ff7ac8;
+transform:scale(1.08);
+box-shadow:0 0 20px #ff7ac8;
 }
 
-/* NSFW BLUR */
-
-.nsfw img{
-filter:blur(20px);
+.watermark{
+position:absolute;
+bottom:8px;
+right:8px;
+background:rgba(0,0,0,0.6);
+padding:4px 8px;
+border-radius:6px;
+font-size:12px;
 }
 
-.nsfw img:hover{
-filter:none;
-}
+/* PAYMENTS */
 
-/* COMMISSIONS */
-
-.prices{
+.payment-icons{
 display:flex;
 justify-content:center;
 gap:30px;
 flex-wrap:wrap;
+margin-top:25px;
 }
 
-.card{
-background:#1a1a2e;
-padding:25px;
-border-radius:15px;
-text-align:center;
-width:220px;
-transition:.3s;
+.payment-icons img{
+width:45px;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #ff7ac8;
-}
-
-.price{
-font-size:22px;
+.payment-icons div{
 color:#ff7ac8;
-margin:10px 0;
-font-weight:600;
-}
-
-/* PAYMENT */
-
-.payment-methods{
-text-align:center;
-margin-top:40px;
-}
-
-.payments{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
-margin-top:10px;
-}
-
-.payments span{
-color:#ff7ac8;
-font-weight:500;
 }
 
 /* CONTACT */
 
-.contact-form{
-max-width:500px;
-margin:auto;
+.contact-icons{
 display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,textarea{
-padding:12px;
-border:none;
-border-radius:10px;
-background:#1a1a2e;
-color:white;
-}
-
-button{
-padding:12px;
-border:none;
-border-radius:20px;
-background:#ff7ac8;
-cursor:pointer;
-}
-
-.contact-info{
-text-align:center;
+justify-content:center;
+gap:35px;
+flex-wrap:wrap;
 margin-top:20px;
+}
+
+.contact-icons a{
+text-decoration:none;
 color:#ff7ac8;
+}
+
+.contact-icons img{
+width:45px;
+transition:.3s;
+}
+
+.contact-icons img:hover{
+transform:scale(1.2);
 }
 
 /* FOOTER */
 
 footer{
-padding:30px;
-text-align:center;
-background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
-color:#0f0f1a;
-font-weight:bold;
-font-size:16px;
-border-top-left-radius:15px;
-border-top-right-radius:15px;
+padding:25px;
+background:#141428;
+margin-top:40px;
 }
 
-/* LIGHTBOX */
+/* AGE GATE */
 
-#lightbox{
-display:none;
+#ageGate{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.9);
+background:#0f0f1a;
+display:flex;
 justify-content:center;
 align-items:center;
-z-index:999;
+z-index:9999;
 }
 
-#lightbox img{
-max-width:90%;
-max-height:90%;
+.age-box{
+background:#1a1a2e;
+padding:40px;
 border-radius:15px;
+max-width:350px;
+}
+
+.age-box button{
+margin-top:20px;
+padding:12px 25px;
+background:#ff7ac8;
+border:none;
+border-radius:20px;
+cursor:pointer;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.nav-links{
-display:none;
+.payment-icons{
 flex-direction:column;
-position:absolute;
-top:70px;
-right:5%;
-background:#1a1a2e;
-padding:20px;
-border-radius:10px;
-width:200px;
 }
 
-.nav-links.show{
-display:flex;
+.contact-icons{
+flex-direction:column;
 }
 
-.hamburger{
-display:flex;
-}
-
-.gallery{
-grid-template-columns:1fr 1fr;
-}
-
-.hero h1{
-font-size:32px;
-}
-
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
 }
 
 </style>
@@ -343,175 +216,144 @@ z-index:-1;
 
 <body>
 
-<canvas id="particles"></canvas>
+<!-- AGE VERIFICATION -->
 
-<header class="navbar">
+<div id="ageGate">
+<div class="age-box">
 
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
+<h2>18+ Content Warning</h2>
+<p>This website contains NSFW artwork.</p>
+<p>You must be 18 or older to enter.</p>
+
+<button onclick="enterSite()">I am 18+</button>
+
+</div>
 </div>
 
-<nav class="nav-links" id="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+
 <a href="#portfolio">Portfolio</a>
-<a href="#commissions">Commissions</a>
-<a href="#tos">TOS</a>
+<a href="#payments">Payments</a>
 <a href="#contact">Contact</a>
-</nav>
 
-</header>
+</div>
 
-<section class="hero" id="home">
+</div>
 
-<img src="pfp.png" class="avatar">
+<!-- HERO -->
+
+<div class="hero">
+
+<img src="avatar.png" class="avatar">
 
 <h1>Moon Peach</h1>
-
-<p>Versatile Digital Artist</p>
-
-<a href="#portfolio" class="btn">View Portfolio</a>
-
-</section>
-
-<section id="about">
-
-<h2>About Me</h2>
-
-<div class="about">
-
-<p>
-Hi! I'm Moon Peach, a versatile digital artist who enjoys creating
-character illustrations, fantasy artwork and expressive designs.
-</p>
-
-<p>
-I love bringing creative ideas and original characters to life through my artwork.
-</p>
+<p>Digital Artist | Commissions Open</p>
 
 </div>
 
-</section>
+<!-- PORTFOLIO -->
 
 <section id="portfolio">
 
-<h2>Portfolio</h2>
+<h2>SFW Artwork</h2>
 
-<div class="tabs">
+<div class="gallery">
 
-<button class="tab-btn active" data-tab="sfw">SFW</button>
-<button class="tab-btn" data-tab="nsfw">NSFW</button>
-
+<div class="art">
+<img src="sfw1.jpg">
+<div class="watermark">Moon Peach</div>
 </div>
 
-<div class="gallery tab sfw">
-
-<img src="1.png">
-<img src="2.png">
-<img src="3.png">
-
-</div>
-
-<div class="gallery tab nsfw nsfw" style="display:none">
-
-<img src="4.png">
-<img src="5.png">
-<img src="6.png">
-
-</div>
-
-</section>
-
-<section id="commissions">
-
-<h2>Commissions</h2>
-
-<div class="prices">
-
-<div class="card">
-<h3>PFP / Icon</h3>
-<p class="price">$50 – $80</p>
-</div>
-
-<div class="card">
-<h3>Half Body</h3>
-<p class="price">$100 – $120</p>
-</div>
-
-<div class="card">
-<h3>Full Body</h3>
-<p class="price">$130 – $150</p>
+<div class="art">
+<img src="sfw2.jpg">
+<div class="watermark">Moon Peach</div>
 </div>
 
 </div>
 
-<div class="payment-methods">
+<h2 style="margin-top:60px;">NSFW Artwork</h2>
 
-<h3>Payment Methods</h3>
+<div class="gallery">
 
-<div class="payments">
+<div class="art">
+<img src="nsfw1.jpg">
+<div class="watermark">Moon Peach</div>
+</div>
 
-<span>💳 PayPal</span>
-<span>📄 PayPal Invoice</span>
-<span>💵 CashApp</span>
-<span>💳 Venmo</span>
-<span>🍎 Apple Pay</span>
-
+<div class="art">
+<img src="nsfw2.jpg">
+<div class="watermark">Moon Peach</div>
 </div>
 
 </div>
 
 </section>
 
-<section id="tos">
+<!-- PAYMENTS -->
 
-<h2>Terms of Service</h2>
+<section id="payments">
 
-<div class="about">
+<h2>Payment Methods</h2>
 
-<ul>
+<div class="payment-icons">
 
-<li>Payment must be sent before starting the commission.</li>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/196/196566.png">
+<p>PayPal</p>
+</div>
 
-<li>I will send a sketch for approval before finishing the artwork.</li>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/196/196566.png">
+<p>PayPal Invoice</p>
+</div>
 
-<li>No refunds after sketch approval.</li>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png">
+<p>CashApp</p>
+</div>
 
-<li>Major revisions may require extra payment.</li>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/349/349221.png">
+<p>Venmo</p>
+</div>
 
-<li>Artwork is for personal use unless commercial rights are discussed.</li>
-
-<li>I may display the artwork in my portfolio or social media.</li>
-
-</ul>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png">
+<p>Apple Pay</p>
+</div>
 
 </div>
 
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact">
 
 <h2>Contact</h2>
 
-<form class="contact-form" action="mailto:moonpeach909@gmail.com" method="post" enctype="text/plain">
+<div class="contact-icons">
 
-<input name="name" placeholder="Your Name" required>
+<a href="mailto:moonpeach909@gmail.com">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<p>Email</p>
+</a>
 
-<input name="email" placeholder="Your Email" required>
+<a href="https://instagram.com/moonpeach909" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<p>Instagram</p>
+</a>
 
-<textarea name="message" placeholder="Commission details" required></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
-
-<div class="contact-info">
-
-<p>Email: moonpeach909@gmail.com</p>
-<p>Discord: moonpeach909</p>
-<p>Instagram: @moonpeach909</p>
+<a href="https://discord.com" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+<p>Discord</p>
+</a>
 
 </div>
 
@@ -519,98 +361,27 @@ I love bringing creative ideas and original characters to life through my artwor
 
 <footer>
 
-<p>© Moon Peach</p>
+<p>© 2026 Moon Peach Art</p>
 
 </footer>
 
-<div id="lightbox">
-<img>
-</div>
-
 <script>
 
-/* PROTECTION */
+function toggleMenu(){
 
-document.addEventListener("contextmenu",e=>e.preventDefault());
+let menu=document.getElementById("menu");
 
-/* HAMBURGER */
-
-const hamburger=document.getElementById("hamburger");
-const navLinks=document.getElementById("nav-links");
-
-hamburger.onclick=()=>{
-navLinks.classList.toggle("show");
-};
-
-/* TABS */
-
-const tabs=document.querySelectorAll(".tab-btn");
-const galleries=document.querySelectorAll(".tab");
-
-tabs.forEach(btn=>{
-btn.onclick=()=>{
-tabs.forEach(b=>b.classList.remove("active"));
-btn.classList.add("active");
-
-galleries.forEach(g=>g.style.display="none");
-
-document.querySelector("."+btn.dataset.tab).style.display="grid";
-};
-});
-
-/* LIGHTBOX */
-
-const imgs=document.querySelectorAll(".gallery img");
-const lightbox=document.getElementById("lightbox");
-const lbimg=lightbox.querySelector("img");
-
-imgs.forEach(img=>{
-img.onclick=()=>{
-lightbox.style.display="flex";
-lbimg.src=img.src;
-};
-});
-
-lightbox.onclick=()=>lightbox.style.display="none";
-
-/* PARTICLES */
-
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-});
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}else{
+menu.style.display="flex";
 }
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle="#ff7ac8";
-ctx.fill();
-
-p.y+=0.3;
-
-if(p.y>canvas.height)p.y=0;
-});
-
-requestAnimationFrame(animate);
 
 }
 
-animate();
+function enterSite(){
+document.getElementById("ageGate").style.display="none";
+}
 
 </script>
 
