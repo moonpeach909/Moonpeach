@@ -15,30 +15,40 @@
 <a href="#home">Home</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#commissions">Commissions</a>
-<a href="#about">About</a>
 <a href="#policies">Policies</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<!-- HERO / Animated Banner -->
+<!-- HERO SECTION -->
 <section id="home" class="hero">
-<div class="hero-overlay"></div>
+<img src="images/avatar.png" alt="Moon Peach Avatar" class="avatar">
 <h1 class="hero-text">Moon Peach</h1>
 <p>Versatile Digital Artist • Commissions Open</p>
 <a href="#portfolio" class="btn">View Portfolio</a>
 </section>
 
-<!-- PORTFOLIO GALLERY -->
+<!-- PORTFOLIO -->
 <section id="portfolio">
 <h2>Portfolio</h2>
+
+<div class="portfolio-tabs">
+<button class="tab-btn active" data-target="sfw">SFW</button>
+<button class="tab-btn" data-target="nsfw">NSFW</button>
+</div>
+
+<div id="sfw" class="tab-content active">
 <div class="gallery">
 <img src="images/art1.jpg" alt="Art 1">
 <img src="images/art2.jpg" alt="Art 2">
+</div>
+</div>
+
+<div id="nsfw" class="tab-content">
+<div class="gallery">
 <img src="images/art3.jpg" alt="Art 3">
 <img src="images/art4.jpg" alt="Art 4">
-<img src="images/art5.jpg" alt="Art 5">
-<img src="images/art6.jpg" alt="Art 6">
+</div>
 </div>
 </section>
 
@@ -46,19 +56,22 @@
 <section id="commissions">
 <h2>Commissions</h2>
 <div class="prices">
-<div class="card"><h3>Bust</h3><p>$20</p></div>
-<div class="card"><h3>Half Body</h3><p>$35</p></div>
-<div class="card"><h3>Full Body</h3><p>$50</p></div>
+<div class="card"><h3>1 Character</h3><p>Base Color: $20</p><p>Full Shading/Comic: $35</p><p>Timeline: 2–4 weeks</p></div>
+<div class="card"><h3>2 Characters</h3><p>Base Color: $35</p><p>Full Shading/Comic: $60</p><p>Timeline: 3–5 weeks</p></div>
 </div>
 <div class="payment">
 <h3>Payment Methods</h3>
-<p>PayPal, Stripe, Cryptocurrency (BTC/ETH)</p>
+<p>PayPal, Stripe, Crypto (BTC/ETH)</p>
 </div>
 </section>
 
-<!-- POLICIES -->
+<!-- POLICIES / WHAT TO DO -->
 <section id="policies">
-<h2>Policies</h2>
+<h2>Policies / What To Do</h2>
+
+<div class="accordion">
+<button class="accordion-btn">Policies</button>
+<div class="accordion-content">
 <ul>
 <li>Payment must be completed before work starts.</li>
 <li>No refunds after sketch approval.</li>
@@ -67,12 +80,24 @@
 <li>Right-click / download disabled to protect artworks.</li>
 <li>Commission agreements confirmed via Discord / Email.</li>
 </ul>
+</div>
+
+<button class="accordion-btn">What To Do</button>
+<div class="accordion-content">
+<ul>
+<li>Contact me with your reference and ideas.</li>
+<li>Discuss the style, characters, and timeline.</li>
+<li>Confirm payment and wait for sketch approval.</li>
+<li>Enjoy your custom artwork when completed!</li>
+</ul>
+</div>
+</div>
 </section>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
-<p>Hi! I'm Moon Peach, a versatile digital artist who enjoys drawing characters, fantasy art, and experimenting with different styles. I strive to bring your ideas to life with unique designs.</p>
+<p>Hi! I'm Moon Peach, a versatile digital artist who enjoys drawing characters, fantasy art, and experimenting with different styles.</p>
 </section>
 
 <!-- CONTACT -->
