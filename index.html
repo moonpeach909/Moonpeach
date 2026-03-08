@@ -11,7 +11,6 @@
 <style>
 
 /* GENERAL */
-
 body{
 font-family:Poppins,sans-serif;
 margin:0;
@@ -32,7 +31,6 @@ margin-bottom:30px;
 }
 
 /* NAVBAR */
-
 .navbar{
 display:flex;
 justify-content:flex-end;
@@ -66,7 +64,6 @@ color:#0f0f1a;
 }
 
 /* HAMBURGER */
-
 .hamburger{
 display:none;
 flex-direction:column;
@@ -82,7 +79,6 @@ border-radius:2px;
 }
 
 /* HERO */
-
 .hero{
 height:100vh;
 display:flex;
@@ -120,17 +116,7 @@ color:white;
 box-shadow:0 0 15px #ff7ac8;
 }
 
-/* ABOUT */
-
-.about{
-max-width:800px;
-margin:auto;
-text-align:center;
-line-height:1.7;
-}
-
 /* PORTFOLIO */
-
 .tabs{
 display:flex;
 justify-content:center;
@@ -172,7 +158,6 @@ box-shadow:0 0 15px #ff7ac8;
 }
 
 /* NSFW BLUR */
-
 .nsfw img{
 filter:blur(20px);
 }
@@ -182,7 +167,6 @@ filter:none;
 }
 
 /* COMMISSIONS */
-
 .prices{
 display:flex;
 justify-content:center;
@@ -211,8 +195,7 @@ margin:10px 0;
 font-weight:600;
 }
 
-/* PAYMENT */
-
+/* PAYMENT ICONS */
 .payment-methods{
 text-align:center;
 margin-top:40px;
@@ -226,45 +209,46 @@ gap:20px;
 margin-top:10px;
 }
 
-.payments span{
-color:#ff7ac8;
-font-weight:500;
-}
-
-/* CONTACT */
-
-.contact-form{
-max-width:500px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,textarea{
-padding:12px;
-border:none;
-border-radius:10px;
-background:#1a1a2e;
-color:white;
-}
-
-button{
-padding:12px;
-border:none;
-border-radius:20px;
-background:#ff7ac8;
-cursor:pointer;
-}
-
-.contact-info{
+.payments div{
 text-align:center;
-margin-top:20px;
 color:#ff7ac8;
+}
+
+.payments img{
+width:50px;
+transition:.3s;
+}
+
+.payments img:hover{
+transform:scale(1.2);
+}
+
+/* CONTACT ICONS */
+.contact-icons{
+display:flex;
+justify-content:center;
+gap:35px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.contact-icons a{
+text-decoration:none;
+color:#ff7ac8;
+text-align:center;
+}
+
+.contact-icons img{
+width:50px;
+margin-bottom:6px;
+transition:.3s;
+}
+
+.contact-icons img:hover{
+transform:scale(1.2);
 }
 
 /* FOOTER */
-
 footer{
 padding:30px;
 text-align:center;
@@ -277,7 +261,6 @@ border-top-right-radius:15px;
 }
 
 /* LIGHTBOX */
-
 #lightbox{
 display:none;
 position:fixed;
@@ -298,7 +281,6 @@ border-radius:15px;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
 .nav-links{
@@ -329,13 +311,17 @@ grid-template-columns:1fr 1fr;
 font-size:32px;
 }
 
+.payments{
+flex-direction:column;
+align-items:center;
+gap:15px;
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
+.contact-icons{
+flex-direction:column;
+gap:15px;
+}
+
 }
 
 </style>
@@ -343,10 +329,7 @@ z-index:-1;
 
 <body>
 
-<canvas id="particles"></canvas>
-
 <header class="navbar">
-
 <div class="hamburger" id="hamburger">
 <span></span>
 <span></span>
@@ -355,172 +338,124 @@ z-index:-1;
 
 <nav class="nav-links" id="nav-links">
 <a href="#home">Home</a>
-<a href="#about">About</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#commissions">Commissions</a>
 <a href="#tos">TOS</a>
 <a href="#contact">Contact</a>
 </nav>
-
 </header>
 
 <section class="hero" id="home">
-
 <img src="pfp.png" class="avatar">
-
 <h1>Moon Peach</h1>
-
 <p>Versatile Digital Artist</p>
-
 <a href="#portfolio" class="btn">View Portfolio</a>
-
-</section>
-
-<section id="about">
-
-<h2>About Me</h2>
-
-<div class="about">
-
-<p>
-Hi! I'm Moon Peach, a versatile digital artist who enjoys creating
-character illustrations, fantasy artwork and expressive designs.
-</p>
-
-<p>
-I love bringing creative ideas and original characters to life through my artwork.
-</p>
-
-</div>
-
 </section>
 
 <section id="portfolio">
-
 <h2>Portfolio</h2>
 
 <div class="tabs">
-
 <button class="tab-btn active" data-tab="sfw">SFW</button>
 <button class="tab-btn" data-tab="nsfw">NSFW</button>
-
 </div>
 
 <div class="gallery tab sfw">
-
 <img src="1.png">
 <img src="2.png">
 <img src="3.png">
-
 </div>
 
 <div class="gallery tab nsfw nsfw" style="display:none">
-
 <img src="4.png">
 <img src="5.png">
 <img src="6.png">
-
 </div>
 
 </section>
 
 <section id="commissions">
-
 <h2>Commissions</h2>
 
 <div class="prices">
-
 <div class="card">
 <h3>PFP / Icon</h3>
 <p class="price">$50 – $80</p>
 </div>
-
 <div class="card">
 <h3>Half Body</h3>
 <p class="price">$100 – $120</p>
 </div>
-
 <div class="card">
 <h3>Full Body</h3>
 <p class="price">$130 – $150</p>
 </div>
-
 </div>
 
 <div class="payment-methods">
-
 <h3>Payment Methods</h3>
-
 <div class="payments">
-
-<span>💳 PayPal</span>
-<span>📄 PayPal Invoice</span>
-<span>💵 CashApp</span>
-<span>💳 Venmo</span>
-<span>🍎 Apple Pay</span>
-
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/196/196566.png">
+<p>PayPal</p>
 </div>
-
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/196/196566.png">
+<p>PayPal Invoice</p>
+</div>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png">
+<p>CashApp</p>
+</div>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/349/349221.png">
+<p>Venmo</p>
+</div>
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png">
+<p>Apple Pay</p>
+</div>
+</div>
 </div>
 
 </section>
 
 <section id="tos">
-
 <h2>Terms of Service</h2>
-
 <div class="about">
-
 <ul>
-
 <li>Payment must be sent before starting the commission.</li>
-
-<li>I will send a sketch for approval before finishing the artwork.</li>
-
+<li>Sketch approval required before final artwork.</li>
 <li>No refunds after sketch approval.</li>
-
 <li>Major revisions may require extra payment.</li>
-
 <li>Artwork is for personal use unless commercial rights are discussed.</li>
-
 <li>I may display the artwork in my portfolio or social media.</li>
-
 </ul>
-
 </div>
-
 </section>
 
 <section id="contact">
-
 <h2>Contact</h2>
 
-<form class="contact-form" action="mailto:moonpeach909@gmail.com" method="post" enctype="text/plain">
-
-<input name="name" placeholder="Your Name" required>
-
-<input name="email" placeholder="Your Email" required>
-
-<textarea name="message" placeholder="Commission details" required></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
-
-<div class="contact-info">
-
-<p>Email: moonpeach909@gmail.com</p>
-<p>Discord: moonpeach909</p>
-<p>Instagram: @moonpeach909</p>
-
+<div class="contact-icons">
+<a href="mailto:moonpeach909@gmail.com">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<p>Email</p>
+</a>
+<a href="https://instagram.com/moonpeach909" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<p>Instagram</p>
+</a>
+<a href="https://discord.com/users/moonpeach909" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+<p>Discord</p>
+</a>
 </div>
 
 </section>
 
 <footer>
-
 <p>© Moon Peach</p>
-
 </footer>
 
 <div id="lightbox">
@@ -528,90 +463,34 @@ I love bringing creative ideas and original characters to life through my artwor
 </div>
 
 <script>
-
-/* PROTECTION */
-
-document.addEventListener("contextmenu",e=>e.preventDefault());
-
 /* HAMBURGER */
-
 const hamburger=document.getElementById("hamburger");
 const navLinks=document.getElementById("nav-links");
-
-hamburger.onclick=()=>{
-navLinks.classList.toggle("show");
-};
+hamburger.onclick=()=>{navLinks.classList.toggle("show");};
 
 /* TABS */
-
 const tabs=document.querySelectorAll(".tab-btn");
 const galleries=document.querySelectorAll(".tab");
-
 tabs.forEach(btn=>{
 btn.onclick=()=>{
 tabs.forEach(b=>b.classList.remove("active"));
 btn.classList.add("active");
-
 galleries.forEach(g=>g.style.display="none");
-
 document.querySelector("."+btn.dataset.tab).style.display="grid";
 };
 });
 
 /* LIGHTBOX */
-
 const imgs=document.querySelectorAll(".gallery img");
 const lightbox=document.getElementById("lightbox");
 const lbimg=lightbox.querySelector("img");
-
 imgs.forEach(img=>{
 img.onclick=()=>{
 lightbox.style.display="flex";
 lbimg.src=img.src;
 };
 });
-
 lightbox.onclick=()=>lightbox.style.display="none";
-
-/* PARTICLES */
-
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-});
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle="#ff7ac8";
-ctx.fill();
-
-p.y+=0.3;
-
-if(p.y>canvas.height)p.y=0;
-});
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
-
 </script>
 
 </body>
