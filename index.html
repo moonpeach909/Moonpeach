@@ -4,113 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Moon Peach | Digital Artist</title>
+<title>Moon Peach | Artist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* GENERAL */
+/* ===== GENERAL ===== */
 
 body{
-font-family:Poppins;
+font-family:'Poppins',sans-serif;
 margin:0;
-background:#0f0f1a;
+background:linear-gradient(135deg,#0f0f1a,#1a1a2e);
 color:white;
 scroll-behavior:smooth;
 overflow-x:hidden;
+user-select:none;
+}
+
+section{
+padding:70px 5%;
 }
 
 h2{
 text-align:center;
-margin:60px 0 20px;
+margin-bottom:30px;
 }
 
-section{
-padding:60px 5%;
-}
-
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 
 .navbar{
+display:flex;
+justify-content:flex-end;
+align-items:center;
+padding:20px 5%;
 position:fixed;
 width:100%;
-top:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 5%;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
 z-index:1000;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 }
 
-.logo{
-color:#ff7ac8;
-font-weight:600;
-font-size:20px;
+.nav-links{
+display:flex;
+gap:20px;
 }
 
 .nav-links a{
 color:#ff7ac8;
-margin-left:20px;
 text-decoration:none;
+padding:8px 12px;
+border-radius:8px;
+transition:0.3s;
 }
 
-/* HERO */
+.nav-links a:hover{
+background:#ff7ac8;
+color:#0f0f1a;
+}
+
+/* ===== HAMBURGER ===== */
+
+.hamburger{
+display:none;
+flex-direction:column;
+cursor:pointer;
+}
+
+.hamburger span{
+height:3px;
+width:25px;
+background:#ff7ac8;
+margin:4px 0;
+border-radius:2px;
+}
+
+/* ===== HERO ===== */
 
 .hero{
 height:100vh;
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
+padding-top:80px;
 }
 
-.hero img{
+.avatar{
 width:150px;
 border-radius:50%;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
 }
 
 .hero h1{
-font-size:48px;
-margin:10px 0;
+font-size:45px;
+margin:15px 0;
 }
 
 .btn{
+margin-top:20px;
 padding:12px 25px;
 background:#ff7ac8;
 border-radius:30px;
 text-decoration:none;
 color:white;
-margin-top:15px;
-display:inline-block;
+box-shadow:0 0 15px #ff7ac8;
 }
 
-/* ABOUT */
+/* ===== ABOUT ===== */
 
 .about{
 max-width:800px;
 margin:auto;
 text-align:center;
-line-height:1.8;
+line-height:1.7;
 }
 
-/* PORTFOLIO */
+/* ===== PORTFOLIO ===== */
 
 .tabs{
 display:flex;
 justify-content:center;
-flex-wrap:wrap;
 gap:10px;
+flex-wrap:wrap;
 margin-bottom:20px;
 }
 
 .tab-btn{
 padding:10px 20px;
-background:#1a1a2e;
 border:none;
+background:#1a1a2e;
 color:#ff7ac8;
 border-radius:20px;
 cursor:pointer;
@@ -123,22 +153,23 @@ color:#0f0f1a;
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
 .gallery img{
 width:100%;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
-transition:.3s;
+transition:0.4s;
 }
 
 .gallery img:hover{
 transform:scale(1.05);
+box-shadow:0 0 15px #ff7ac8;
 }
 
-/* NSFW BLUR */
+/* ===== NSFW BLUR ===== */
 
 .nsfw img{
 filter:blur(20px);
@@ -148,34 +179,43 @@ filter:blur(20px);
 filter:none;
 }
 
-/* COMMISSIONS */
+/* ===== COMMISSIONS ===== */
 
 .prices{
 display:flex;
 justify-content:center;
+gap:30px;
 flex-wrap:wrap;
-gap:25px;
 }
 
 .card{
 background:#1a1a2e;
 padding:25px;
 border-radius:15px;
-width:200px;
 text-align:center;
+width:200px;
+transition:0.3s;
 }
 
 .card:hover{
+transform:translateY(-10px);
 box-shadow:0 0 20px #ff7ac8;
 }
 
-/* RULES */
+.price{
+font-size:22px;
+color:#ff7ac8;
+margin:10px 0;
+font-weight:600;
+}
+
+/* ===== RULES ===== */
 
 .rules{
 display:flex;
 flex-wrap:wrap;
-gap:40px;
 justify-content:center;
+gap:40px;
 }
 
 .rules ul{
@@ -184,9 +224,9 @@ padding:20px;
 border-radius:15px;
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 
-.contact{
+.contact-form{
 max-width:500px;
 margin:auto;
 display:flex;
@@ -197,7 +237,7 @@ gap:15px;
 input,textarea{
 padding:12px;
 border:none;
-border-radius:8px;
+border-radius:10px;
 background:#1a1a2e;
 color:white;
 }
@@ -205,35 +245,39 @@ color:white;
 button{
 padding:12px;
 border:none;
-background:#ff7ac8;
 border-radius:20px;
+background:#ff7ac8;
 cursor:pointer;
 }
 
-/* SOCIALS */
+/* ===== SOCIALS ===== */
 
 .socials{
-text-align:center;
-margin-top:30px;
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
 }
 
 .socials a{
-margin:0 10px;
 color:#ff7ac8;
-font-size:18px;
 text-decoration:none;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 footer{
+padding:30px;
 text-align:center;
-padding:25px;
-background:#1a1a2e;
-margin-top:40px;
+background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
+color:#0f0f1a;
+font-weight:bold;
+font-size:16px;
+border-top-left-radius:15px;
+border-top-right-radius:15px;
 }
 
-/* LIGHTBOX */
+/* ===== LIGHTBOX ===== */
 
 #lightbox{
 display:none;
@@ -242,17 +286,50 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.9);
+background:rgba(0,0,0,0.9);
 justify-content:center;
 align-items:center;
+z-index:999;
 }
 
 #lightbox img{
 max-width:90%;
 max-height:90%;
+border-radius:15px;
 }
 
-/* PARTICLES */
+/* ===== MOBILE ===== */
+
+@media (max-width:768px){
+
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:5%;
+background:#1a1a2e;
+padding:20px;
+border-radius:10px;
+}
+
+.nav-links.show{
+display:flex;
+}
+
+.hamburger{
+display:flex;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+}
 
 canvas{
 position:fixed;
@@ -270,33 +347,37 @@ z-index:-1;
 
 <!-- NAVBAR -->
 
-<div class="navbar">
+<header class="navbar">
 
-<div class="logo">Moon Peach</div>
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-<div class="nav-links">
+<nav class="nav-links" id="nav-links">
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#commissions">Commissions</a>
-<a href="#rules">Rules</a>
+<a href="#rules">Do & Don't</a>
 <a href="#tos">TOS</a>
 <a href="#contact">Contact</a>
-</div>
+</nav>
 
-</div>
+</header>
 
 <!-- HERO -->
 
 <section class="hero" id="home">
 
-<img src="pfp.png">
+<img src="pfp.png" class="avatar">
 
 <h1>Moon Peach</h1>
 
 <p>Versatile Digital Artist</p>
 
-<a class="btn" href="#portfolio">View Portfolio</a>
+<a href="#portfolio" class="btn">View Portfolio</a>
 
 </section>
 
@@ -309,8 +390,8 @@ z-index:-1;
 <div class="about">
 
 <p>
-Hi! I'm Moon Peach, a versatile digital artist who enjoys creating character illustrations,
-fantasy artwork and expressive designs.
+Hi! I'm Moon Peach, a versatile digital artist who enjoys creating
+character illustrations, fantasy artwork and expressive designs.
 </p>
 
 <p>
@@ -375,25 +456,24 @@ I love working on custom characters and bringing creative ideas to life.
 <div class="prices">
 
 <div class="card">
-<h3>PFP</h3>
-<p>$50 – $80</p>
+<h3>PFP / Icon</h3>
+<p class="price">$50 – $80</p>
+<p>Perfect for profile pictures</p>
 </div>
 
 <div class="card">
 <h3>Half Body</h3>
-<p>$100 – $120</p>
+<p class="price">$100 – $120</p>
+<p>Character from waist up</p>
 </div>
 
 <div class="card">
 <h3>Full Body</h3>
-<p>$130 – $150</p>
+<p class="price">$130 – $150</p>
+<p>Full character illustration</p>
 </div>
 
 </div>
-
-<p style="text-align:center;margin-top:20px">
-Payment: PayPal • CashApp • Apple Pay • BTC
-</p>
 
 </section>
 
@@ -409,15 +489,15 @@ Payment: PayPal • CashApp • Apple Pay • BTC
 <h3>✔ I Draw</h3>
 <li>OC Characters</li>
 <li>Fanart</li>
-<li>Couples</li>
-<li>Fantasy characters</li>
+<li>Couple Art</li>
+<li>Fantasy Characters</li>
 </ul>
 
 <ul>
 <h3>❌ I Don't Draw</h3>
-<li>Heavy mecha</li>
-<li>Extreme gore</li>
-<li>Illegal content</li>
+<li>Heavy Mecha</li>
+<li>Extreme Gore</li>
+<li>Illegal Content</li>
 </ul>
 
 </div>
@@ -433,15 +513,10 @@ Payment: PayPal • CashApp • Apple Pay • BTC
 <div class="about">
 
 <ul>
-
 <li>Payment upfront.</li>
-
 <li>No refund after sketch approval.</li>
-
-<li>Personal use unless discussed.</li>
-
+<li>Personal use only unless discussed.</li>
 <li>Artist may display artwork in portfolio.</li>
-
 </ul>
 
 </div>
@@ -454,7 +529,7 @@ Payment: PayPal • CashApp • Apple Pay • BTC
 
 <h2>Contact</h2>
 
-<form class="contact">
+<form class="contact-form">
 
 <input placeholder="Your Name">
 
@@ -478,7 +553,7 @@ Payment: PayPal • CashApp • Apple Pay • BTC
 
 <footer>
 
-© Moon Peach • Digital Artist
+<p>© Moon Peach</p>
 
 </footer>
 
@@ -488,22 +563,33 @@ Payment: PayPal • CashApp • Apple Pay • BTC
 
 <script>
 
-/* PORTFOLIO TABS */
+/* RIGHT CLICK PROTECTION */
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+/* HAMBURGER */
+
+const hamburger=document.getElementById("hamburger");
+const navLinks=document.getElementById("nav-links");
+
+hamburger.onclick=()=>{
+navLinks.classList.toggle("show");
+};
+
+/* TABS */
 
 const tabs=document.querySelectorAll(".tab-btn");
 const galleries=document.querySelectorAll(".tab");
 
 tabs.forEach(btn=>{
 btn.onclick=()=>{
-
 tabs.forEach(b=>b.classList.remove("active"));
 btn.classList.add("active");
 
 galleries.forEach(g=>g.style.display="none");
 
 document.querySelector("."+btn.dataset.tab).style.display="grid";
-
-}
+};
 });
 
 /* LIGHTBOX */
@@ -516,7 +602,7 @@ imgs.forEach(img=>{
 img.onclick=()=>{
 lightbox.style.display="flex";
 lbimg.src=img.src;
-}
+};
 });
 
 lightbox.onclick=()=>lightbox.style.display="none";
