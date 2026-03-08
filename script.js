@@ -1,9 +1,16 @@
-/* Right-click / keyboard / drag protection */
+/* PROTECTION */
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('keydown', e => {
   if(e.ctrlKey && ['s','c','x','u'].includes(e.key.toLowerCase())) e.preventDefault();
 });
 document.addEventListener('dragstart', e=>e.preventDefault());
+
+/* Hamburger menu toggle */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', ()=>{
+  navLinks.classList.toggle('show');
+});
 
 /* Portfolio Tabs */
 const tabBtns = document.querySelectorAll('.tab-btn');
