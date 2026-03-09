@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +19,6 @@ color:white;
 scroll-behavior:smooth;
 overflow-x:hidden;
 user-select:none;
-}
-
-/* DISABLE IMAGE DRAG */
-img{
--webkit-user-drag:none;
-user-drag:none;
 }
 
 section{padding:70px 6%;}
@@ -60,6 +55,7 @@ color:#0f0f1a;
 }
 
 /* HERO */
+
 .hero{
 height:100vh;
 display:flex;
@@ -98,6 +94,7 @@ box-shadow:0 0 15px #ff7ac8;
 }
 
 /* ABOUT */
+
 .about{
 max-width:800px;
 margin:auto;
@@ -106,6 +103,7 @@ line-height:1.7;
 }
 
 /* PORTFOLIO */
+
 .tabs{
 display:flex;
 justify-content:center;
@@ -137,6 +135,7 @@ gap:20px;
 .gallery img{
 width:100%;
 border-radius:12px;
+cursor:pointer;
 transition:.4s;
 }
 
@@ -153,36 +152,7 @@ filter:blur(20px);
 filter:none;
 }
 
-/* COMMISSIONS */
-.prices{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.card{
-background:#1a1a2e;
-padding:25px;
-border-radius:15px;
-text-align:center;
-width:220px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #ff7ac8;
-}
-
-.price{
-font-size:22px;
-color:#ff7ac8;
-margin:10px 0;
-font-weight:600;
-}
-
-/* PAYMENT ICONS */
+/* PAYMENT */
 
 .payment-methods{
 text-align:center;
@@ -283,63 +253,133 @@ font-size:32px;
 
 <body>
 
+<header class="navbar">
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#tos">TOS</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
+<section class="hero" id="home">
+<img src="pfp.png" class="avatar">
+<h1>Moon Peach</h1>
+<p>Versatile Digital Artist</p>
+<a href="#portfolio" class="btn">View Portfolio</a>
+</section>
 
-  <script>
+<section id="about">
+<h2>About Me</h2>
+<div class="about">
+<p>Hi! I'm Moon Peach, a versatile digital artist who enjoys creating character illustrations, fantasy artwork, and expressive designs.</p>
+<p>I love bringing creative ideas and original characters to life through my artwork.</p>
+</div>
+</section>
+
+<section id="portfolio">
+<h2>Portfolio</h2>
+
+<div class="gallery">
+<img src="moon/i.png">
+<img src="moon/c.png">
+<img src="moon/f.png">
+<img src="moon/b.png">
+<img src="moon/d.png">
+<img src="moon/e.png">
+</div>
+
+</section>
+
+<section id="tos">
+<h2>Terms of Service</h2>
+<div class="about">
+<ul>
+<li>Payment must be sent before starting the commission.</li>
+<li>Sketch approval required before final artwork.</li>
+<li>No refunds after sketch approval.</li>
+<li>Major revisions may require extra payment.</li>
+<li>Artwork is for personal use unless commercial rights are discussed.</li>
+<li>I may display the artwork in my portfolio or social media.</li>
+</ul>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+
+<div class="contact-icons">
+
+<a href="mailto:moon.peach909@gmail.com">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<p>Email</p>
+</a>
+
+<a href="https://instagram.com/moonpeachxoxo" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<p>Instagram</p>
+</a>
+
+</div>
+</section>
+
+<footer>
+<p>© Moon Peach</p>
+</footer>
+
+<div id="lightbox"><img></div>
+
+<script>
+
+/* LIGHTBOX */
+
+const imgs=document.querySelectorAll(".gallery img")
+const lightbox=document.getElementById("lightbox")
+const lbimg=lightbox.querySelector("img")
+
+imgs.forEach(img=>{
+img.onclick=()=>{
+lightbox.style.display="flex"
+lbimg.src=img.src
+}
+})
+
+lightbox.onclick=()=>{
+lightbox.style.display="none"
+}
 
 /* RIGHT CLICK BLOCK */
-document.addEventListener("contextmenu",function(e){
-e.preventDefault();
-});
 
-/* IMAGE DRAG BLOCK */
-document.addEventListener("dragstart",function(e){
-e.preventDefault();
-});
+document.addEventListener("contextmenu",e=>e.preventDefault())
+
+/* DRAG BLOCK */
+
+document.addEventListener("dragstart",e=>e.preventDefault())
 
 /* COPY BLOCK */
-document.addEventListener("copy",function(e){
-e.preventDefault();
-});
 
-/* TEXT SELECT BLOCK */
-document.addEventListener("selectstart",function(e){
-e.preventDefault();
-});
+document.addEventListener("copy",e=>e.preventDefault())
+
+/* SELECT BLOCK */
+
+document.addEventListener("selectstart",e=>e.preventDefault())
 
 /* DEVTOOLS BLOCK */
+
 document.onkeydown=function(e){
 
-if(e.keyCode==123){
-return false;
+if(e.keyCode==123){return false}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==73){return false}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==74){return false}
+
+if(e.ctrlKey && e.keyCode==85){return false}
+
 }
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==73){
-return false;
-}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==74){
-return false;
-}
-
-if(e.ctrlKey && e.keyCode==85){
-return false;
-}
-
-};
-
-/* SCREENSHOT BASIC BLOCK */
-
-document.addEventListener("keyup",function(e){
-
-if(e.key=="PrintScreen"){
-navigator.clipboard.writeText("");
-alert("Screenshots disabled.");
-}
-
-});
 
 </script>
+
 </body>
-  
 </html>
