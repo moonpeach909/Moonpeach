@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,9 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 /* GENERAL */
-
 body{
 font-family:Poppins,sans-serif;
 margin:0;
@@ -20,18 +19,14 @@ scroll-behavior:smooth;
 overflow-x:hidden;
 user-select:none;
 }
-
 section{
 padding:70px 6%;
 }
-
 h2{
 text-align:center;
 margin-bottom:30px;
 }
-
 /* NAVBAR */
-
 .navbar{
 display:flex;
 justify-content:space-between;
@@ -46,19 +41,15 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 transition:.4s;
 }
-
 .navbar.scrolled{
 background:rgba(0,0,0,0.9);
 box-shadow:0 0 20px black;
 }
-
 /* NAV LINKS */
-
 .nav-links{
 display:flex;
 gap:20px;
 }
-
 .nav-links a{
 color:#ff7ac8;
 text-decoration:none;
@@ -66,20 +57,16 @@ padding:8px 12px;
 border-radius:8px;
 transition:.3s;
 }
-
 .nav-links a:hover{
 background:#ff7ac8;
 color:#0f0f1a;
 }
-
 /* HAMBURGER */
-
 .hamburger{
 display:none;
 flex-direction:column;
 cursor:pointer;
 }
-
 .hamburger span{
 height:3px;
 width:25px;
@@ -88,21 +75,16 @@ margin:4px 0;
 border-radius:2px;
 transition:.4s;
 }
-
 .hamburger.active span:nth-child(1){
 transform:rotate(45deg) translate(5px,5px);
 }
-
 .hamburger.active span:nth-child(2){
 opacity:0;
 }
-
 .hamburger.active span:nth-child(3){
 transform:rotate(-45deg) translate(6px,-6px);
 }
-
 /* HERO */
-
 .hero{
 height:100vh;
 display:flex;
@@ -112,26 +94,33 @@ align-items:center;
 text-align:center;
 padding-top:80px;
 }
-
 .avatar{
 width:150px;
 border-radius:50%;
 animation:float 4s ease-in-out infinite;
 }
-
 @keyframes float{
 0%{transform:translateY(0)}
 50%{transform:translateY(-15px)}
 100%{transform:translateY(0)}
 }
-
 .hero h1{
 font-size:45px;
 margin:15px 0;
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid #ff7ac8;
+width:15ch;
+animation:typing 3s steps(15), blink 0.7s infinite step-end alternate;
 }
-
+@keyframes typing {
+from { width: 0 }
+to { width: 15ch }
+}
+@keyframes blink {
+50% { border-color: transparent; }
+}
 /* BUTTON */
-
 .btn{
 margin-top:20px;
 padding:12px 25px;
@@ -141,24 +130,28 @@ text-decoration:none;
 color:white;
 animation:pulse 2s infinite;
 }
-
 @keyframes pulse{
 0%{box-shadow:0 0 10px #ff7ac8;}
 50%{box-shadow:0 0 25px #ff7ac8;}
 100%{box-shadow:0 0 10px #ff7ac8;}
 }
-
 /* ABOUT */
-
 .about{
 max-width:800px;
 margin:auto;
 text-align:center;
-line-height:1.7;
+line-height:1.8;
+opacity:0;
+transform:translateY(30px);
+animation:fadeInUp 1s forwards;
 }
-
+@keyframes fadeInUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 /* TABS */
-
 .tabs{
 display:flex;
 justify-content:center;
@@ -166,7 +159,6 @@ gap:10px;
 flex-wrap:wrap;
 margin-bottom:20px;
 }
-
 .tab-btn{
 padding:10px 20px;
 border:none;
@@ -175,44 +167,55 @@ color:#ff7ac8;
 border-radius:20px;
 cursor:pointer;
 }
-
 .tab-btn.active{
 background:#ff7ac8;
 color:#0f0f1a;
 }
-
 /* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.gallery-container{
+position:relative;
+overflow:hidden;
 }
-
-.gallery img{
-width:100%;
+.gallery-scroll{
+display:flex;
+gap:20px;
+transition:transform 0.5s ease;
+}
+.gallery-scroll img{
+width:250px;
 border-radius:12px;
 cursor:pointer;
 transition:.4s;
 }
-
-.gallery img:hover{
+.gallery-scroll img:hover{
 transform:scale(1.05);
 box-shadow:0 0 20px #ff7ac8;
 }
-
+.gallery-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,122,200,0.7);
+border:none;
+padding:10px;
+cursor:pointer;
+border-radius:50%;
+z-index:5;
+}
+.gallery-arrow.left{
+left:10px;
+}
+.gallery-arrow.right{
+right:10px;
+}
 /* NSFW BLUR */
-
 .nsfw img{
 filter:blur(20px);
 }
-
 .nsfw img:hover{
 filter:none;
 }
-
 /* CONTACT */
-
 .contact-icons{
 display:flex;
 justify-content:center;
@@ -220,25 +223,20 @@ gap:35px;
 flex-wrap:wrap;
 margin-top:20px;
 }
-
 .contact-icons a{
 text-decoration:none;
 color:#ff7ac8;
 text-align:center;
 }
-
 .contact-icons img{
 width:60px;
 margin-bottom:6px;
 transition:.3s;
 }
-
 .contact-icons img:hover{
 transform:scale(1.2);
 }
-
 /* FOOTER */
-
 footer{
 padding:30px;
 text-align:center;
@@ -247,9 +245,7 @@ color:#0f0f1a;
 font-weight:bold;
 box-shadow:0 -5px 20px rgba(255,122,200,.4);
 }
-
 /* LIGHTBOX */
-
 #lightbox{
 display:none;
 position:fixed;
@@ -262,17 +258,13 @@ justify-content:center;
 align-items:center;
 z-index:999;
 }
-
 #lightbox img{
 max-width:90%;
 max-height:90%;
 border-radius:15px;
 }
-
 /* MOBILE */
-
 @media(max-width:768px){
-
 .nav-links{
 display:none;
 flex-direction:column;
@@ -284,34 +276,26 @@ padding:20px;
 border-radius:10px;
 width:200px;
 }
-
 .nav-links.show{
 display:flex;
 }
-
 .hamburger{
 display:flex;
 }
-
-.gallery{
-grid-template-columns:1fr 1fr;
+.gallery-scroll{
+flex-wrap:nowrap;
 }
-
 }
-
 </style>
+
 </head>
-
 <body>
-
 <header class="navbar">
-
 <div class="hamburger" id="hamburger">
 <span></span>
 <span></span>
 <span></span>
 </div>
-
 <nav class="nav-links" id="nav-links">
 <a href="#home">Home</a>
 <a href="#about">About</a>
@@ -319,34 +303,28 @@ grid-template-columns:1fr 1fr;
 <a href="#tos">TOS</a>
 <a href="#contact">Contact</a>
 </nav>
-
 </header>
-
 <section class="hero" id="home">
 <img src="pfp.png" class="avatar">
 <h1>Moon Peach</h1>
 <p>Versatile Digital Artist</p>
 <a href="#portfolio" class="btn">View Portfolio</a>
 </section>
-
 <section id="about">
 <h2>About Me</h2>
 <div class="about">
-<p>Hi! I'm Moon Peach, a versatile digital artist who enjoys creating character illustrations, fantasy artwork, and expressive designs.</p>
+<p>Hello! I'm <strong>Moon Peach</strong>, a highly experienced digital artist passionate about creating vivid character illustrations, fantasy art, and unique creative designs. With years of practice and a versatile skillset, I bring imagination to life in every piece I create. Whether it's intricate detail or expressive style, I strive to craft artwork that resonates and captivates.</p>
 </div>
 </section>
-
 <section id="portfolio">
-
 <h2>Portfolio</h2>
-
 <div class="tabs">
 <button class="tab-btn active" data-tab="sfw">SFW</button>
 <button class="tab-btn" data-tab="nsfw">NSFW</button>
 </div>
-
-<div class="gallery tab sfw">
-
+<div class="gallery-container tab sfw">
+<button class="gallery-arrow left">&#10094;</button>
+<div class="gallery-scroll">
 <img src="moon/i.png">
 <img src="moon/c.png">
 <img src="moon/f.png">
@@ -355,11 +333,12 @@ grid-template-columns:1fr 1fr;
 <img src="moon/e.png">
 <img src="moon/g.png">
 <img src="moon/h.png">
-
 </div>
-
-<div class="gallery tab nsfw nsfw" style="display:none">
-
+<button class="gallery-arrow right">&#10095;</button>
+</div>
+<div class="gallery-container tab nsfw nsfw" style="display:none">
+<button class="gallery-arrow left">&#10094;</button>
+<div class="gallery-scroll">
 <img src="moon/7.png">
 <img src="moon/8.png">
 <img src="moon/9.png">
@@ -372,11 +351,10 @@ grid-template-columns:1fr 1fr;
 <img src="moon/3.png">
 <img src="moon/2.png">
 <img src="moon/12.png">
-
 </div>
-
+<button class="gallery-arrow right">&#10095;</button>
+</div>
 </section>
-
 <section id="tos">
 <h2>Terms of Service</h2>
 <div class="about">
@@ -390,95 +368,82 @@ grid-template-columns:1fr 1fr;
 </ul>
 </div>
 </section>
-
 <section id="contact">
 <h2>Contact</h2>
-
 <div class="contact-icons">
-
 <a href="mailto:moon.peach909@gmail.com">
 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
 <p>Email</p>
 </a>
-
 <a href="https://instagram.com/moonpeachxoxo" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 <p>Instagram</p>
 </a>
-
 </div>
-
 </section>
-
 <footer>
 <p>© Moon Peach</p>
 </footer>
-
 <div id="lightbox"><img></div>
-
 <script>
-
 /* HAMBURGER */
-
 const hamburger=document.getElementById("hamburger")
 const navLinks=document.getElementById("nav-links")
-
 hamburger.onclick=()=>{
 navLinks.classList.toggle("show")
 hamburger.classList.toggle("active")
 }
-
 /* TABS */
-
 const tabs=document.querySelectorAll(".tab-btn")
 const galleries=document.querySelectorAll(".tab")
-
 tabs.forEach(btn=>{
 btn.onclick=()=>{
 tabs.forEach(b=>b.classList.remove("active"))
 btn.classList.add("active")
-
 galleries.forEach(g=>g.style.display="none")
-
-document.querySelector("."+btn.dataset.tab).style.display="grid"
+document.querySelector("."+btn.dataset.tab).style.display="block"
 }
 })
-
 /* LIGHTBOX */
-
-const imgs=document.querySelectorAll(".gallery img")
+const imgs=document.querySelectorAll(".gallery-scroll img")
 const lightbox=document.getElementById("lightbox")
 const lbimg=lightbox.querySelector("img")
-
 imgs.forEach(img=>{
 img.onclick=()=>{
 lightbox.style.display="flex"
 lbimg.src=img.src
 }
 })
-
 lightbox.onclick=()=>lightbox.style.display="none"
-
 /* NAVBAR SCROLL */
-
 window.addEventListener("scroll",function(){
 const navbar=document.querySelector(".navbar")
-
 if(window.scrollY>50){
 navbar.classList.add("scrolled")
 }else{
 navbar.classList.remove("scrolled")
 }
 })
-
 /* IMAGE PROTECTION */
-
 document.addEventListener("contextmenu",e=>e.preventDefault())
 document.addEventListener("dragstart",e=>e.preventDefault())
 document.addEventListener("copy",e=>e.preventDefault())
 document.addEventListener("selectstart",e=>e.preventDefault())
-
+/* GALLERY ARROWS */
+const galleryContainers=document.querySelectorAll('.gallery-container');
+galleryContainers.forEach(container=>{
+const scrollDiv=container.querySelector('.gallery-scroll');
+const left=container.querySelector('.gallery-arrow.left');
+const right=container.querySelector('.gallery-arrow.right');
+let scrollAmount=0;
+const scrollStep=250;
+left.onclick=()=>{
+scrollDiv.scrollBy({left:-scrollStep, behavior:'smooth'});
+}
+right.onclick=()=>{
+scrollDiv.scrollBy({left:scrollStep, behavior:'smooth'});
+}
+});
 </script>
-
 </body>
 </html>
