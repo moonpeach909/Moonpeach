@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +21,8 @@ overflow-x:hidden;
 user-select:none;
 }
 
-/* FADE ANIMATION */
-
-@keyframes fadeUp{
-0%{opacity:0; transform:translateY(30px);}
-100%{opacity:1; transform:translateY(0);}
-}
-
 section{
 padding:70px 6%;
-animation:fadeUp 1s ease;
 }
 
 h2{
@@ -53,6 +44,12 @@ box-sizing:border-box;
 z-index:1000;
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
+transition:.4s;
+}
+
+.navbar.scrolled{
+background:rgba(0,0,0,0.9);
+box-shadow:0 0 20px black;
 }
 
 /* NAV LINKS */
@@ -89,6 +86,19 @@ width:25px;
 background:#ff7ac8;
 margin:4px 0;
 border-radius:2px;
+transition:.4s;
+}
+
+.hamburger.active span:nth-child(1){
+transform:rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+transform:rotate(-45deg) translate(6px,-6px);
 }
 
 /* HERO */
@@ -120,6 +130,8 @@ font-size:45px;
 margin:15px 0;
 }
 
+/* BUTTON */
+
 .btn{
 margin-top:20px;
 padding:12px 25px;
@@ -127,12 +139,13 @@ background:#ff7ac8;
 border-radius:30px;
 text-decoration:none;
 color:white;
-box-shadow:0 0 15px #ff7ac8;
-transition:.3s;
+animation:pulse 2s infinite;
 }
 
-.btn:hover{
-transform:scale(1.1);
+@keyframes pulse{
+0%{box-shadow:0 0 10px #ff7ac8;}
+50%{box-shadow:0 0 25px #ff7ac8;}
+100%{box-shadow:0 0 10px #ff7ac8;}
 }
 
 /* ABOUT */
@@ -144,7 +157,7 @@ text-align:center;
 line-height:1.7;
 }
 
-/* PORTFOLIO */
+/* TABS */
 
 .tabs{
 display:flex;
@@ -161,13 +174,14 @@ background:#1a1a2e;
 color:#ff7ac8;
 border-radius:20px;
 cursor:pointer;
-transition:.3s;
 }
 
 .tab-btn.active{
 background:#ff7ac8;
 color:#0f0f1a;
 }
+
+/* GALLERY */
 
 .gallery{
 display:grid;
@@ -195,30 +209,6 @@ filter:blur(20px);
 
 .nsfw img:hover{
 filter:none;
-}
-
-/* PAYMENT */
-
-.payment-methods{
-text-align:center;
-margin-top:40px;
-}
-
-.payments{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-top:10px;
-}
-
-.payments img{
-width:80px;
-transition:.3s;
-}
-
-.payments img:hover{
-transform:scale(1.2);
 }
 
 /* CONTACT */
@@ -255,6 +245,7 @@ text-align:center;
 background: linear-gradient(135deg,#ff7ac8,#ffb6c1);
 color:#0f0f1a;
 font-weight:bold;
+box-shadow:0 -5px 20px rgba(255,122,200,.4);
 }
 
 /* LIGHTBOX */
@@ -434,6 +425,7 @@ const navLinks=document.getElementById("nav-links")
 
 hamburger.onclick=()=>{
 navLinks.classList.toggle("show")
+hamburger.classList.toggle("active")
 }
 
 /* TABS */
@@ -467,7 +459,19 @@ lbimg.src=img.src
 
 lightbox.onclick=()=>lightbox.style.display="none"
 
-/* PROTECTION */
+/* NAVBAR SCROLL */
+
+window.addEventListener("scroll",function(){
+const navbar=document.querySelector(".navbar")
+
+if(window.scrollY>50){
+navbar.classList.add("scrolled")
+}else{
+navbar.classList.remove("scrolled")
+}
+})
+
+/* IMAGE PROTECTION */
 
 document.addEventListener("contextmenu",e=>e.preventDefault())
 document.addEventListener("dragstart",e=>e.preventDefault())
@@ -478,4 +482,3 @@ document.addEventListener("selectstart",e=>e.preventDefault())
 
 </body>
 </html>
-```
