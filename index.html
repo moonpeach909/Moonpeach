@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 <style>
 
 /* GENERAL */
+
 body{
 font-family:Poppins,sans-serif;
 margin:0;
@@ -20,13 +22,28 @@ overflow-x:hidden;
 user-select:none;
 }
 
-section{padding:70px 6%;}
-h2{text-align:center;margin-bottom:30px;}
+/* FADE ANIMATION */
+
+@keyframes fadeUp{
+0%{opacity:0; transform:translateY(30px);}
+100%{opacity:1; transform:translateY(0);}
+}
+
+section{
+padding:70px 6%;
+animation:fadeUp 1s ease;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
 
 /* NAVBAR */
+
 .navbar{
 display:flex;
-justify-content:flex-end;
+justify-content:space-between;
 align-items:center;
 padding:20px 6%;
 position:fixed;
@@ -37,6 +54,27 @@ z-index:1000;
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 }
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+color:#ff7ac8;
+text-decoration:none;
+padding:8px 12px;
+border-radius:8px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+background:#ff7ac8;
+color:#0f0f1a;
+}
+
 /* HAMBURGER */
 
 .hamburger{
@@ -51,75 +89,6 @@ width:25px;
 background:#ff7ac8;
 margin:4px 0;
 border-radius:2px;
-}
-
-/* MOBILE MENU */
-
-@media(max-width:768px){
-
-.nav-links{
-display:none;
-flex-direction:column;
-position:absolute;
-top:70px;
-right:5%;
-background:#1a1a2e;
-padding:20px;
-border-radius:10px;
-width:200px;
-}
-
-.nav-links.show{
-display:flex;
-}
-
-.hamburger{
-display:flex;
-}
-
-}
-.nav-links{
-display:flex;
-gap:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.nav-links{
-display:none;
-flex-direction:column;
-position:absolute;
-top:70px;
-right:5%;
-background:#1a1a2e;
-padding:20px;
-border-radius:10px;
-width:200px;
-}
-
-.nav-links.show{
-display:flex;
-}
-
-.hamburger{
-display:flex;
-}
-
-}
-
-.nav-links a{
-color:#ff7ac8;
-text-decoration:none;
-padding:8px 12px;
-border-radius:8px;
-transition:.3s;
-}
-
-.nav-links a:hover{
-background:#ff7ac8;
-color:#0f0f1a;
 }
 
 /* HERO */
@@ -159,6 +128,11 @@ border-radius:30px;
 text-decoration:none;
 color:white;
 box-shadow:0 0 15px #ff7ac8;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
 }
 
 /* ABOUT */
@@ -187,6 +161,7 @@ background:#1a1a2e;
 color:#ff7ac8;
 border-radius:20px;
 cursor:pointer;
+transition:.3s;
 }
 
 .tab-btn.active{
@@ -209,8 +184,10 @@ transition:.4s;
 
 .gallery img:hover{
 transform:scale(1.05);
-box-shadow:0 0 15px #ff7ac8;
+box-shadow:0 0 20px #ff7ac8;
 }
+
+/* NSFW BLUR */
 
 .nsfw img{
 filter:blur(20px);
@@ -275,10 +252,9 @@ transform:scale(1.2);
 footer{
 padding:30px;
 text-align:center;
-background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
+background: linear-gradient(135deg,#ff7ac8,#ffb6c1);
 color:#0f0f1a;
 font-weight:bold;
-font-size:16px;
 }
 
 /* LIGHTBOX */
@@ -306,12 +282,28 @@ border-radius:15px;
 
 @media(max-width:768px){
 
-.gallery{
-grid-template-columns:1fr 1fr;
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:5%;
+background:#1a1a2e;
+padding:20px;
+border-radius:10px;
+width:200px;
 }
 
-.hero h1{
-font-size:32px;
+.nav-links.show{
+display:flex;
+}
+
+.hamburger{
+display:flex;
+}
+
+.gallery{
+grid-template-columns:1fr 1fr;
 }
 
 }
@@ -350,20 +342,46 @@ font-size:32px;
 <h2>About Me</h2>
 <div class="about">
 <p>Hi! I'm Moon Peach, a versatile digital artist who enjoys creating character illustrations, fantasy artwork, and expressive designs.</p>
-<p>I love bringing creative ideas and original characters to life through my artwork.</p>
 </div>
 </section>
 
 <section id="portfolio">
+
 <h2>Portfolio</h2>
 
-<div class="gallery">
+<div class="tabs">
+<button class="tab-btn active" data-tab="sfw">SFW</button>
+<button class="tab-btn" data-tab="nsfw">NSFW</button>
+</div>
+
+<div class="gallery tab sfw">
+
 <img src="moon/i.png">
 <img src="moon/c.png">
 <img src="moon/f.png">
 <img src="moon/b.png">
 <img src="moon/d.png">
 <img src="moon/e.png">
+<img src="moon/g.png">
+<img src="moon/h.png">
+
+</div>
+
+<div class="gallery tab nsfw nsfw" style="display:none">
+
+<img src="moon/7.png">
+<img src="moon/8.png">
+<img src="moon/9.png">
+<img src="moon/6.png">
+<img src="moon/5.png">
+<img src="moon/4.png">
+<img src="moon/3.png">
+<img src="moon/1.png">
+<img src="moon/10.png">
+<img src="moon/12.png">
+<img src="moon/13.png">
+<img src="moon/2.png">
+
 </div>
 
 </section>
@@ -398,6 +416,7 @@ font-size:32px;
 </a>
 
 </div>
+
 </section>
 
 <footer>
@@ -407,6 +426,31 @@ font-size:32px;
 <div id="lightbox"><img></div>
 
 <script>
+
+/* HAMBURGER */
+
+const hamburger=document.getElementById("hamburger")
+const navLinks=document.getElementById("nav-links")
+
+hamburger.onclick=()=>{
+navLinks.classList.toggle("show")
+}
+
+/* TABS */
+
+const tabs=document.querySelectorAll(".tab-btn")
+const galleries=document.querySelectorAll(".tab")
+
+tabs.forEach(btn=>{
+btn.onclick=()=>{
+tabs.forEach(b=>b.classList.remove("active"))
+btn.classList.add("active")
+
+galleries.forEach(g=>g.style.display="none")
+
+document.querySelector("."+btn.dataset.tab).style.display="grid"
+}
+})
 
 /* LIGHTBOX */
 
@@ -421,47 +465,17 @@ lbimg.src=img.src
 }
 })
 
-lightbox.onclick=()=>{
-lightbox.style.display="none"
-}
+lightbox.onclick=()=>lightbox.style.display="none"
 
-/* RIGHT CLICK BLOCK */
+/* PROTECTION */
 
 document.addEventListener("contextmenu",e=>e.preventDefault())
-
-/* DRAG BLOCK */
-
 document.addEventListener("dragstart",e=>e.preventDefault())
-
-/* COPY BLOCK */
-
 document.addEventListener("copy",e=>e.preventDefault())
-
-/* SELECT BLOCK */
-
 document.addEventListener("selectstart",e=>e.preventDefault())
-
-/* DEVTOOLS BLOCK */
-
-document.onkeydown=function(e){
-
-if(e.keyCode==123){return false}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==73){return false}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==74){return false}
-
-if(e.ctrlKey && e.keyCode==85){return false}
-
-}
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-
-hamburger.addEventListener("click", function () {
-navLinks.classList.toggle("show");
-});
 
 </script>
 
 </body>
 </html>
+```
