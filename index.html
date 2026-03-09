@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,283 +18,73 @@ scroll-behavior:smooth;
 overflow-x:hidden;
 user-select:none;
 }
-section{
-padding:70px 6%;
-}
-h2{
-text-align:center;
-margin-bottom:30px;
-}
-/* NAVBAR */
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 6%;
-position:fixed;
-top:0;
-width:100%;
-box-sizing:border-box;
-z-index:1000;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-transition:.4s;
-}
-.navbar.scrolled{
-background:rgba(0,0,0,0.9);
-box-shadow:0 0 20px black;
-}
-/* NAV LINKS */
-.nav-links{
-display:flex;
-gap:20px;
-}
-.nav-links a{
-color:#ff7ac8;
-text-decoration:none;
-padding:8px 12px;
-border-radius:8px;
-transition:.3s;
-}
-.nav-links a:hover{
-background:#ff7ac8;
-color:#0f0f1a;
-}
-/* HAMBURGER */
-.hamburger{
-display:none;
-flex-direction:column;
-cursor:pointer;
-}
-.hamburger span{
-height:3px;
-width:25px;
-background:#ff7ac8;
-margin:4px 0;
-border-radius:2px;
-transition:.4s;
-}
-.hamburger.active span:nth-child(1){
-transform:rotate(45deg) translate(5px,5px);
-}
-.hamburger.active span:nth-child(2){
-opacity:0;
-}
-.hamburger.active span:nth-child(3){
-transform:rotate(-45deg) translate(6px,-6px);
-}
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding-top:80px;
-}
-.avatar{
-width:150px;
-border-radius:50%;
-animation:float 4s ease-in-out infinite;
-}
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
-.hero h1{
-font-size:45px;
-margin:15px 0;
-overflow:hidden;
-white-space:nowrap;
-border-right:3px solid #ff7ac8;
-width:15ch;
-animation:typing 3s steps(15), blink 0.7s infinite step-end alternate;
-}
-@keyframes typing {
-from { width: 0 }
-to { width: 15ch }
-}
-@keyframes blink {
-50% { border-color: transparent; }
-}
-/* BUTTON */
-.btn{
-margin-top:20px;
-padding:12px 25px;
-background:#ff7ac8;
-border-radius:30px;
-text-decoration:none;
-color:white;
-animation:pulse 2s infinite;
-}
-@keyframes pulse{
-0%{box-shadow:0 0 10px #ff7ac8;}
-50%{box-shadow:0 0 25px #ff7ac8;}
-100%{box-shadow:0 0 10px #ff7ac8;}
-}
-/* ABOUT */
-.about{
-max-width:800px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-opacity:0;
-transform:translateY(30px);
-animation:fadeInUp 1s forwards;
-}
-@keyframes fadeInUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-/* TABS */
-.tabs{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-.tab-btn{
-padding:10px 20px;
-border:none;
-background:#1a1a2e;
-color:#ff7ac8;
-border-radius:20px;
-cursor:pointer;
-}
-.tab-btn.active{
-background:#ff7ac8;
-color:#0f0f1a;
-}
-/* GALLERY */
-.gallery-container{
-position:relative;
-overflow:hidden;
-}
-.gallery-scroll{
-display:flex;
-gap:20px;
-transition:transform 0.5s ease;
-}
-.gallery-scroll img{
-width:250px;
-border-radius:12px;
-cursor:pointer;
-transition:.4s;
-}
-.gallery-scroll img:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #ff7ac8;
-}
-.gallery-arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(255,122,200,0.7);
-border:none;
-padding:10px;
-cursor:pointer;
-border-radius:50%;
-z-index:5;
-}
-.gallery-arrow.left{
-left:10px;
-}
-.gallery-arrow.right{
-right:10px;
-}
-/* NSFW BLUR */
-.nsfw img{
-filter:blur(20px);
-}
-.nsfw img:hover{
-filter:none;
-}
-/* CONTACT */
-.contact-icons{
-display:flex;
-justify-content:center;
-gap:35px;
-flex-wrap:wrap;
-margin-top:20px;
-}
-.contact-icons a{
-text-decoration:none;
-color:#ff7ac8;
-text-align:center;
-}
-.contact-icons img{
-width:60px;
-margin-bottom:6px;
-transition:.3s;
-}
-.contact-icons img:hover{
-transform:scale(1.2);
-}
-/* FOOTER */
-footer{
-padding:30px;
-text-align:center;
-background: linear-gradient(135deg,#ff7ac8,#ffb6c1);
-color:#0f0f1a;
-font-weight:bold;
-box-shadow:0 -5px 20px rgba(255,122,200,.4);
-}
-/* LIGHTBOX */
-#lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-#lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:15px;
-}
-/* MOBILE */
-@media(max-width:768px){
-.nav-links{
-display:none;
-flex-direction:column;
-position:absolute;
-top:70px;
-right:5%;
-background:#1a1a2e;
-padding:20px;
-border-radius:10px;
-width:200px;
-}
-.nav-links.show{
-display:flex;
-}
-.hamburger{
-display:flex;
-}
-.gallery-scroll{
-flex-wrap:nowrap;
-}
-}
-</style>
+section{padding:70px 6%;opacity:0;transform:translateY(20px);transition:all 1s ease;}
+section.show{opacity:1;transform:translateY(0);}
 
+h2{text-align:center;margin-bottom:30px;}
+
+/* NAVBAR */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:20px 6%;position:fixed;top:0;width:100%;box-sizing:border-box;z-index:1000;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);transition:.4s;}
+.navbar.scrolled{background:rgba(0,0,0,0.9);box-shadow:0 0 20px black;}
+
+.nav-links{display:flex;gap:20px;}
+.nav-links a{color:#ff7ac8;text-decoration:none;padding:8px 12px;border-radius:8px;transition:.3s;}
+.nav-links a:hover{background:#ff7ac8;color:#0f0f1a;}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;cursor:pointer;}
+.hamburger span{height:3px;width:25px;background:#ff7ac8;margin:4px 0;border-radius:2px;transition:.4s;}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:80px;}
+.avatar{width:150px;border-radius:50%;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
+.hero h1{font-size:45px;margin:15px 0;}
+.hero .typed-text{color:#ff7ac8; font-weight:600;}
+
+/* BUTTON */
+.btn{margin-top:20px;padding:12px 25px;background:#ff7ac8;border-radius:30px;text-decoration:none;color:white;animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 10px #ff7ac8;}50%{box-shadow:0 0 25px #ff7ac8;}100%{box-shadow:0 0 10px #ff7ac8;}}
+
+/* ABOUT */
+.about{max-width:800px;margin:auto;text-align:center;line-height:1.7;}
+
+/* TABS */
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.tab-btn{padding:10px 20px;border:none;background:#1a1a2e;color:#ff7ac8;border-radius:20px;cursor:pointer;transition:.3s;}
+.tab-btn.active{background:#ff7ac8;color:#0f0f1a;}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:.4s;}
+.gallery img:hover{transform:scale(1.05);box-shadow:0 0 20px #ff7ac8;}
+.nsfw img{filter:blur(20px);} 
+.nsfw img:hover{filter:none;}
+
+/* CONTACT */
+.contact-icons{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;margin-top:20px;}
+.contact-icons a{text-decoration:none;color:#ff7ac8;text-align:center;}
+.contact-icons img{width:60px;margin-bottom:6px;transition:.3s;}
+.contact-icons img:hover{transform:scale(1.2);}
+
+/* FOOTER */
+footer{padding:30px;text-align:center;background: linear-gradient(135deg,#ff7ac8,#ffb6c1);color:#0f0f1a;font-weight:bold;box-shadow:0 -5px 20px rgba(255,122,200,.4);}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:999;}
+#lightbox img{max-width:90%;max-height:90%;border-radius:15px;}
+
+/* MOBILE */
+@media(max-width:768px){.nav-links{display:none;flex-direction:column;position:absolute;top:70px;right:5%;background:#1a1a2e;padding:20px;border-radius:10px;width:200px;}.nav-links.show{display:flex;}.hamburger{display:flex;}.gallery{grid-template-columns:1fr 1fr;}}
+</style>
 </head>
+
 <body>
 <header class="navbar">
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
+<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 <nav class="nav-links" id="nav-links">
 <a href="#home">Home</a>
 <a href="#about">About</a>
@@ -304,57 +93,35 @@ flex-wrap:nowrap;
 <a href="#contact">Contact</a>
 </nav>
 </header>
+
 <section class="hero" id="home">
 <img src="pfp.png" class="avatar">
-<h1>Moon Peach</h1>
+<h1><span class="typed-text"></span></h1>
 <p>Versatile Digital Artist</p>
 <a href="#portfolio" class="btn">View Portfolio</a>
 </section>
+
 <section id="about">
 <h2>About Me</h2>
 <div class="about">
-<p>Hello! I'm <strong>Moon Peach</strong>, a highly experienced digital artist passionate about creating vivid character illustrations, fantasy art, and unique creative designs. With years of practice and a versatile skillset, I bring imagination to life in every piece I create. Whether it's intricate detail or expressive style, I strive to craft artwork that resonates and captivates.</p>
+<p>Greetings! I'm <strong>Moon Peach</strong>, a highly versatile digital artist with years of professional experience in character design, fantasy illustration, and digital storytelling. I specialize in bringing imaginative worlds and expressive characters to life, adapting my style to any vision or project. From clean, polished commissions to dynamic, artistic experiments, I provide high-quality, personalized artwork while maintaining professionalism and clear communication. Every project is handled with attention to detail and dedication, making your ideas come alive exactly as envisioned.</p>
 </div>
 </section>
+
 <section id="portfolio">
 <h2>Portfolio</h2>
 <div class="tabs">
 <button class="tab-btn active" data-tab="sfw">SFW</button>
 <button class="tab-btn" data-tab="nsfw">NSFW</button>
 </div>
-<div class="gallery-container tab sfw">
-<button class="gallery-arrow left">&#10094;</button>
-<div class="gallery-scroll">
-<img src="moon/i.png">
-<img src="moon/c.png">
-<img src="moon/f.png">
-<img src="moon/b.png">
-<img src="moon/d.png">
-<img src="moon/e.png">
-<img src="moon/g.png">
-<img src="moon/h.png">
+<div class="gallery tab sfw">
+<img src="moon/i.png"><img src="moon/c.png"><img src="moon/f.png"><img src="moon/b.png"><img src="moon/d.png"><img src="moon/e.png"><img src="moon/g.png"><img src="moon/h.png">
 </div>
-<button class="gallery-arrow right">&#10095;</button>
-</div>
-<div class="gallery-container tab nsfw nsfw" style="display:none">
-<button class="gallery-arrow left">&#10094;</button>
-<div class="gallery-scroll">
-<img src="moon/7.png">
-<img src="moon/8.png">
-<img src="moon/9.png">
-<img src="moon/6.png">
-<img src="moon/5.png">
-<img src="moon/4.png">
-<img src="moon/1.png">
-<img src="moon/10.png">
-<img src="moon/13.png">
-<img src="moon/3.png">
-<img src="moon/2.png">
-<img src="moon/12.png">
-</div>
-<button class="gallery-arrow right">&#10095;</button>
+<div class="gallery tab nsfw nsfw" style="display:none">
+<img src="moon/7.png"><img src="moon/8.png"><img src="moon/9.png"><img src="moon/6.png"><img src="moon/5.png"><img src="moon/4.png"><img src="moon/1.png"><img src="moon/10.png"><img src="moon/13.png"><img src="moon/3.png"><img src="moon/2.png"><img src="moon/12.png">
 </div>
 </section>
+
 <section id="tos">
 <h2>Terms of Service</h2>
 <div class="about">
@@ -368,82 +135,71 @@ flex-wrap:nowrap;
 </ul>
 </div>
 </section>
+
 <section id="contact">
 <h2>Contact</h2>
 <div class="contact-icons">
-<a href="mailto:moon.peach909@gmail.com">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-<p>Email</p>
-</a>
-<a href="https://instagram.com/moonpeachxoxo" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-<p>Instagram</p>
-</a>
+<a href="mailto:moon.peach909@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"><p>Email</p></a>
+<a href="https://instagram.com/moonpeachxoxo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><p>Instagram</p></a>
 </div>
 </section>
-<footer>
-<p>© Moon Peach</p>
-</footer>
+
+<footer><p>© Moon Peach</p></footer>
 <div id="lightbox"><img></div>
+
 <script>
 /* HAMBURGER */
-const hamburger=document.getElementById("hamburger")
-const navLinks=document.getElementById("nav-links")
-hamburger.onclick=()=>{
-navLinks.classList.toggle("show")
-hamburger.classList.toggle("active")
-}
+const hamburger=document.getElementById("hamburger");
+const navLinks=document.getElementById("nav-links");
+hamburger.onclick=()=>{navLinks.classList.toggle("show");hamburger.classList.toggle("active");}
+
 /* TABS */
-const tabs=document.querySelectorAll(".tab-btn")
-const galleries=document.querySelectorAll(".tab")
-tabs.forEach(btn=>{
-btn.onclick=()=>{
-tabs.forEach(b=>b.classList.remove("active"))
-btn.classList.add("active")
-galleries.forEach(g=>g.style.display="none")
-document.querySelector("."+btn.dataset.tab).style.display="block"
-}
-})
+const tabs=document.querySelectorAll(".tab-btn");
+const galleries=document.querySelectorAll(".tab");
+tabs.forEach(btn=>{btn.onclick=()=>{
+tabs.forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+galleries.forEach(g=>g.style.display="none");
+document.querySelector("."+btn.dataset.tab).style.display="grid";
+}})
+
 /* LIGHTBOX */
-const imgs=document.querySelectorAll(".gallery-scroll img")
-const lightbox=document.getElementById("lightbox")
-const lbimg=lightbox.querySelector("img")
-imgs.forEach(img=>{
-img.onclick=()=>{
-lightbox.style.display="flex"
-lbimg.src=img.src
-}
-})
-lightbox.onclick=()=>lightbox.style.display="none"
+const imgs=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lbimg=lightbox.querySelector("img");
+imgs.forEach(img=>{img.onclick=()=>{lightbox.style.display="flex";lbimg.src=img.src;}})
+lightbox.onclick=()=>lightbox.style.display="none";
+
 /* NAVBAR SCROLL */
-window.addEventListener("scroll",function(){
-const navbar=document.querySelector(".navbar")
-if(window.scrollY>50){
-navbar.classList.add("scrolled")
-}else{
-navbar.classList.remove("scrolled")
-}
-})
+window.addEventListener("scroll",function(){const navbar=document.querySelector(".navbar");if(window.scrollY>50){navbar.classList.add("scrolled");}else{navbar.classList.remove("scrolled");}});
+
 /* IMAGE PROTECTION */
-document.addEventListener("contextmenu",e=>e.preventDefault())
-document.addEventListener("dragstart",e=>e.preventDefault())
-document.addEventListener("copy",e=>e.preventDefault())
-document.addEventListener("selectstart",e=>e.preventDefault())
-/* GALLERY ARROWS */
-const galleryContainers=document.querySelectorAll('.gallery-container');
-galleryContainers.forEach(container=>{
-const scrollDiv=container.querySelector('.gallery-scroll');
-const left=container.querySelector('.gallery-arrow.left');
-const right=container.querySelector('.gallery-arrow.right');
-let scrollAmount=0;
-const scrollStep=250;
-left.onclick=()=>{
-scrollDiv.scrollBy({left:-scrollStep, behavior:'smooth'});
-}
-right.onclick=()=>{
-scrollDiv.scrollBy({left:scrollStep, behavior:'smooth'});
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("dragstart",e=>e.preventDefault());
+document.addEventListener("copy",e=>e.preventDefault());
+document.addEventListener("selectstart",e=>e.preventDefault());
+
+/* TYPING EFFECT */
+const typedText = document.querySelector('.typed-text');
+const nameText = 'Moon Peach';
+let index = 0;
+function typeName(){
+ if(index < nameText.length){
+ typedText.textContent += nameText.charAt(index);
+ index++;
+ setTimeout(typeName,150);
+ }}
+typeName();
+
+/* SECTION FADE-IN */
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', ()=>{
+sections.forEach(section=>{
+ if(window.scrollY + window.innerHeight - 100 > section.offsetTop){
+ section.classList.add('show');
 }
 });
+});
 </script>
+
 </body>
 </html>
