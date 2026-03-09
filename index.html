@@ -284,39 +284,32 @@ font-size:32px;
 
 <body>
 
-<!-- WEBSITE CONTENT SAME RAHEGA -->
 
-<!-- tumhara existing HTML yahan rahega -->
-<!-- main sirf protection script add kar raha hoon -->
 
-<script>
+</body>
+  <script>
 
 /* RIGHT CLICK BLOCK */
-
 document.addEventListener("contextmenu",function(e){
 e.preventDefault();
 });
 
 /* IMAGE DRAG BLOCK */
-
 document.addEventListener("dragstart",function(e){
 e.preventDefault();
 });
 
 /* COPY BLOCK */
-
 document.addEventListener("copy",function(e){
 e.preventDefault();
 });
 
-/* SELECT BLOCK */
-
+/* TEXT SELECT BLOCK */
 document.addEventListener("selectstart",function(e){
 e.preventDefault();
 });
 
-/* DEV TOOLS BLOCK */
-
+/* DEVTOOLS BLOCK */
 document.onkeydown=function(e){
 
 if(e.keyCode==123){
@@ -343,12 +336,10 @@ document.addEventListener("keyup",function(e){
 
 if(e.key=="PrintScreen"){
 navigator.clipboard.writeText("");
-alert("Screenshots disabled on this page.");
+alert("Screenshots disabled.");
 }
 
 });
 
 </script>
-
-</body>
 </html>
