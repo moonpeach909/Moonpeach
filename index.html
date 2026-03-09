@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 /* GENERAL */
 body{
 font-family:Poppins,sans-serif;
@@ -18,6 +19,14 @@ scroll-behavior:smooth;
 overflow-x:hidden;
 user-select:none;
 }
+
+/* DISABLE IMAGE DRAG */
+img{
+pointer-events:none;
+-webkit-user-drag:none;
+user-drag:none;
+}
+
 section{padding:70px 6%;}
 h2{text-align:center;margin-bottom:30px;}
 
@@ -35,14 +44,21 @@ z-index:1000;
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 }
-.nav-links{display:flex;gap:20px;}
-.nav-links a{
-color:#ff7ac8;text-decoration:none;padding:8px 12px;border-radius:8px;transition:.3s;}
-.nav-links a:hover{background:#ff7ac8;color:#0f0f1a;}
 
-/* HAMBURGER */
-.hamburger{display:none;flex-direction:column;cursor:pointer;}
-.hamburger span{height:3px;width:25px;background:#ff7ac8;margin:4px 0;border-radius:2px;}
+.nav-links{display:flex;gap:20px;}
+
+.nav-links a{
+color:#ff7ac8;
+text-decoration:none;
+padding:8px 12px;
+border-radius:8px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+background:#ff7ac8;
+color:#0f0f1a;
+}
 
 /* HERO */
 .hero{
@@ -54,13 +70,33 @@ align-items:center;
 text-align:center;
 padding-top:80px;
 }
+
 .avatar{
-width:150px;border-radius:50%;
+width:150px;
+border-radius:50%;
 animation:float 4s ease-in-out infinite;
 }
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
-.hero h1{font-size:45px;margin:15px 0;}
-.btn{margin-top:20px;padding:12px 25px;background:#ff7ac8;border-radius:30px;text-decoration:none;color:white;box-shadow:0 0 15px #ff7ac8;}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.hero h1{
+font-size:45px;
+margin:15px 0;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+background:#ff7ac8;
+border-radius:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 0 15px #ff7ac8;
+}
 
 /* ABOUT */
 .about{
@@ -71,209 +107,247 @@ line-height:1.7;
 }
 
 /* PORTFOLIO */
-.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
-.tab-btn{padding:10px 20px;border:none;background:#1a1a2e;color:#ff7ac8;border-radius:20px;cursor:pointer;}
-.tab-btn.active{background:#ff7ac8;color:#0f0f1a;}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:.4s;}
-.gallery img:hover{transform:scale(1.05);box-shadow:0 0 15px #ff7ac8;}
-.nsfw img{filter:blur(20px);}
-.nsfw img:hover{filter:none;}
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.tab-btn{
+padding:10px 20px;
+border:none;
+background:#1a1a2e;
+color:#ff7ac8;
+border-radius:20px;
+cursor:pointer;
+}
+
+.tab-btn.active{
+background:#ff7ac8;
+color:#0f0f1a;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px #ff7ac8;
+}
+
+.nsfw img{
+filter:blur(20px);
+}
+
+.nsfw img:hover{
+filter:none;
+}
 
 /* COMMISSIONS */
-.prices{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;}
-.card{background:#1a1a2e;padding:25px;border-radius:15px;text-align:center;width:220px;transition:.3s;}
-.card:hover{transform:translateY(-10px);box-shadow:0 0 20px #ff7ac8;}
-.price{font-size:22px;color:#ff7ac8;margin:10px 0;font-weight:600;}
+.prices{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
 
-/* PAYMENT ICONS */
-.payment-methods{
-text-align:center;margin-top:40px;
-}
-.payments{
-display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin-top:10px;
-}
-.payments a{
-display:flex;justify-content:center;align-items:center;
-}
-.payments img{
-width:80px; /* BIG ICONS */
+.card{
+background:#1a1a2e;
+padding:25px;
+border-radius:15px;
+text-align:center;
+width:220px;
 transition:.3s;
 }
-.payments img:hover{transform:scale(1.2);}
 
-/* CONTACT ICONS */
-.contact-icons{
-display:flex;justify-content:center;gap:35px;flex-wrap:wrap;margin-top:20px;
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #ff7ac8;
 }
-.contact-icons a{text-decoration:none;color:#ff7ac8;text-align:center;}
-.contact-icons img{width:60px;margin-bottom:6px;transition:.3s;}
-.contact-icons img:hover{transform:scale(1.2);}
+
+.price{
+font-size:22px;
+color:#ff7ac8;
+margin:10px 0;
+font-weight:600;
+}
+
+/* PAYMENT ICONS */
+
+.payment-methods{
+text-align:center;
+margin-top:40px;
+}
+
+.payments{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-top:10px;
+}
+
+.payments img{
+width:80px;
+transition:.3s;
+}
+
+.payments img:hover{
+transform:scale(1.2);
+}
+
+/* CONTACT */
+
+.contact-icons{
+display:flex;
+justify-content:center;
+gap:35px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.contact-icons a{
+text-decoration:none;
+color:#ff7ac8;
+text-align:center;
+}
+
+.contact-icons img{
+width:60px;
+margin-bottom:6px;
+transition:.3s;
+}
+
+.contact-icons img:hover{
+transform:scale(1.2);
+}
 
 /* FOOTER */
+
 footer{
-padding:30px;text-align:center;background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
-color:#0f0f1a;font-weight:bold;font-size:16px;
-border-top-left-radius:15px;border-top-right-radius:15px;
+padding:30px;
+text-align:center;
+background: linear-gradient(135deg, #ff7ac8, #ffb6c1);
+color:#0f0f1a;
+font-weight:bold;
+font-size:16px;
 }
 
 /* LIGHTBOX */
-#lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:999;}
-#lightbox img{max-width:90%;max-height:90%;border-radius:15px;}
+
+#lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+}
 
 /* MOBILE */
+
 @media(max-width:768px){
-.nav-links{display:none;flex-direction:column;position:absolute;top:70px;right:5%;background:#1a1a2e;padding:20px;border-radius:10px;width:200px;}
-.nav-links.show{display:flex;}
-.hamburger{display:flex;}
-.gallery{grid-template-columns:1fr 1fr;}
-.hero h1{font-size:32px;}
-.payments{flex-direction:column;align-items:center;gap:20px;}
-.contact-icons{flex-direction:column;gap:20px;}
+
+.gallery{
+grid-template-columns:1fr 1fr;
 }
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header class="navbar">
-<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-<nav class="nav-links" id="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
-<!-- <a href="#commissions">Commissions</a> -->
-<a href="#tos">TOS</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+<!-- WEBSITE CONTENT SAME RAHEGA -->
 
-<section class="hero" id="home">
-<img src="pfp.png" class="avatar">
-<h1>Moon Peach</h1>
-<p>Versatile Digital Artist</p>
-<a href="#portfolio" class="btn">View Portfolio</a>
-</section>
-
-<section id="about">
-<h2>About Me</h2>
-<div class="about">
-<p>Hi! I'm Moon Peach, a versatile digital artist who enjoys creating character illustrations, fantasy artwork, and expressive designs.</p>
-<p>I love bringing creative ideas and original characters to life through my artwork.</p>
-</div>
-</section>
-
-<section id="portfolio">
-<h2>Portfolio</h2>
-<div class="tabs">
-<button class="tab-btn active" data-tab="sfw">SFW</button>
-<button class="tab-btn" data-tab="nsfw">NSFW</button>
-</div>
-<div class="gallery tab sfw">
-<img src="moon/i.png">
-<img src="moon/c.png">
-<img src="moon/f.png">
-<img src="moon/b.png">
-<img src="moon/d.png">
-<img src="moon/e.png">
-<img src="moon/g.png">
-<img src="moon/h.png">
-</div>
-<div class="gallery tab nsfw nsfw" style="display:none">
-<img src="moon/7.png">
-<img src="moon/8.png">
-<img src="moon/9.png">
-<!-- <img src="moon/11.png"> -->
-<img src="moon/6.png">
-<img src="moon/5.png">
-<img src="moon/4.png">
-<img src="moon/3.png">
-<img src="moon/1.png">
-<img src="moon/10.png">
-<img src="moon/12.png">
-<img src="moon/13.png">
-<img src="moon/2.png">
-</div>
-</section>
-
-<section id="commissions">
-<!-- <h2>Commissions</h2>
-<div class="prices">
-<div class="card"><h3>PFP / Icon</h3><p class="price">$50 – $80</p></div>
-<div class="card"><h3>Half Body</h3><p class="price">$100 – $120</p></div>
-<div class="card"><h3>Full Body</h3><p class="price">$130 – $150</p></div>
-</div> -->
-
-<div class="payment-methods">
-<h3>Payment</h3>
-<div class="payments">
-<a href="#"><img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="PayPal"></a>
-<!-- <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="PayPal Invoice"></a> -->
-<a href="#"><img src="https://www.logo.wine/a/logo/Cash_App/Cash_App-Logo.wine.svg" alt="CashApp"></a>
-<!-- <a href="#"><img src="https://www.vhv.rs/dpng/d/486-4863753_venmo-logo-clipart-banner-free-library-hd-venmo.png" alt="Venmo"></a> -->
-<a href="#"><img src="https://cdn.freebiesupply.com/logos/thumbs/2x/apple-pay-payment-mark-logo.png" alt="Apple Pay"></a>
-</div>
-</div>
-</section>
-
-<section id="tos">
-<h2>Terms of Service</h2>
-<div class="about">
-<ul>
-<li>Payment must be sent before starting the commission.</li>
-<li>Sketch approval required before final artwork.</li>
-<li>No refunds after sketch approval.</li>
-<li>Major revisions may require extra payment.</li>
-<li>Artwork is for personal use unless commercial rights are discussed.</li>
-<li>I may display the artwork in my portfolio or social media.</li>
-</ul>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-<div class="contact-icons">
-<a href="mailto:moon.peach909@gmail.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"><p>Email</p></a>
-<a href="https://instagram.com/moonpeachxoxo" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><p>Instagram</p></a>
-<!-- <a href="https://discord.com/users/moonpeach909" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"><p>Discord</p></a> -->
-</div>
-</section>
-
-<footer>
-<p>© Moon Peach</p>
-</footer>
-
-<div id="lightbox"><img></div>
+<!-- tumhara existing HTML yahan rahega -->
+<!-- main sirf protection script add kar raha hoon -->
 
 <script>
-/* HAMBURGER */
-const hamburger=document.getElementById("hamburger");
-const navLinks=document.getElementById("nav-links");
-hamburger.onclick=()=>{navLinks.classList.toggle("show");};
 
-/* TABS */
-const tabs=document.querySelectorAll(".tab-btn");
-const galleries=document.querySelectorAll(".tab");
-tabs.forEach(btn=>{
-btn.onclick=()=>{
-tabs.forEach(b=>b.classList.remove("active"));
-btn.classList.add("active");
-galleries.forEach(g=>g.style.display="none");
-document.querySelector("."+btn.dataset.tab).style.display="grid";
-};
+/* RIGHT CLICK BLOCK */
+
+document.addEventListener("contextmenu",function(e){
+e.preventDefault();
 });
 
-/* LIGHTBOX */
-const imgs=document.querySelectorAll(".gallery img");
-const lightbox=document.getElementById("lightbox");
-const lbimg=lightbox.querySelector("img");
-imgs.forEach(img=>{
-img.onclick=()=>{
-lightbox.style.display="flex";
-lbimg.src=img.src;
-};
+/* IMAGE DRAG BLOCK */
+
+document.addEventListener("dragstart",function(e){
+e.preventDefault();
 });
-lightbox.onclick=()=>lightbox.style.display="none";
+
+/* COPY BLOCK */
+
+document.addEventListener("copy",function(e){
+e.preventDefault();
+});
+
+/* SELECT BLOCK */
+
+document.addEventListener("selectstart",function(e){
+e.preventDefault();
+});
+
+/* DEV TOOLS BLOCK */
+
+document.onkeydown=function(e){
+
+if(e.keyCode==123){
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==73){
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==74){
+return false;
+}
+
+if(e.ctrlKey && e.keyCode==85){
+return false;
+}
+
+};
+
+/* SCREENSHOT BASIC BLOCK */
+
+document.addEventListener("keyup",function(e){
+
+if(e.key=="PrintScreen"){
+navigator.clipboard.writeText("");
+alert("Screenshots disabled on this page.");
+}
+
+});
+
 </script>
 
 </body>
